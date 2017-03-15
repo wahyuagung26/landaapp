@@ -1,0 +1,199 @@
+<div ng-controller="userCtrl">
+    <div class="container-fluid">
+        <div class="row" ng-show="!is_edit">
+            <div class="col-md-12" st-pipe="callServer" st-table="displayed">
+                <div class="panel panel-blank">
+                    <div class="panel-heading">
+                        <h2 class="text-left">
+                            Master User
+                        </h2>
+                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
+                            <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed" ng-init="isCollapsed = false">
+                                <i class="glyphicon glyphicon-search">
+                                </i>
+                                Pencarian
+                            </button>
+                            <button class="btn btn-primary" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view">
+                                <i class="glyphicon glyphicon-plus">
+                                </i>
+                                Buat Baru
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Form pencarian -->
+                        <div ng-show="isCollapsed">
+                            <form class="form-horizontal form-validation" name="landaform">
+                                <div class="well">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-sm-4 control-label text-left">
+                                                    Nama User
+                                                </label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" st-search="m_user.nama" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-;sm">
+                                                <label class="col-sm-4 control-label text-left">
+                                                    Status
+                                                </label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" st-search="m_user.is_deleted" stinputevent="change">
+                                                        <option value="0">
+                                                            Aktif
+                                                        </option>
+                                                        <option value="1">
+                                                            Terhapus
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End -->
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left;">
+                                        Nama
+                                    </th>
+                                    <th style="text-align: left;">
+                                        Username
+                                    </th>
+                                    <th style="text-align: left;">
+                                        Hak Akses
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-dblclick="view(row)" ng-repeat="row in displayed">
+                                    <td>
+                                        {{row.nama}}
+                                    </td>
+                                    <td>
+                                        {{row.username}}
+                                    </td>
+                                    <td>
+                                        {{row.hakakses}}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group pull-right" role="group">
+                                            <button class="btn btn-info" ng-click="update(row)" ng-if="row.is_deleted == 0" type="button">
+                                                <i class="glyphicon glyphicon-pencil">
+                                                </i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-danger" ng-click="trash(row);" ng-if="row.is_deleted == 0" type="button">
+                                                <i class="glyphicon glyphicon-trash">
+                                                </i>
+                                                Hapus
+                                            </button>
+                                            <button class="btn btn-info" ng-click="restore(row);" ng-if="row.is_deleted == 1" type="button">
+                                                <i class="glyphicon glyphicon-refresh">
+                                                </i>
+                                                Restore
+                                            </button>
+                                            <button class="btn btn-danger" ng-click="delete(row);" ng-if="row.is_deleted == 1" type="button">
+                                                <i class="glyphicon glyphicon-minus-sign">
+                                                </i>
+                                                Hapus Permanen
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="is_edit">
+            <div class="col-md-12">
+                <div class="panel panel-blank">
+                    <div class="panel-heading">
+                        <h2 class="text-left">
+                            Master User
+                        </h2>
+                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
+                            <button class="btn btn-default" ng-click="cancel()">
+                                <i class="glyphicon glyphicon-arrow-left">
+                                </i>
+                                Kembali
+                            </button>
+                            <button class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
+                                <i class="glyphicon glyphicon-save">
+                                </i>
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal form-validation " name="landaform" novalidate="">
+                            <div class="col-md-6">
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label required">
+                                        Nama
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" ng-disabled="is_view" ng-model="form.nama" type="text">
+                                        </input>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label required">
+                                        Username
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" ng-disabled="is_view" ng-model="form.username" type="text">
+                                        </input>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label">
+                                        Password
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" ng-disabled="is_view" ng-model="form.password" type="password">
+                                        </input>
+                                        <p class="help-block" ng-if="!is_create">
+                                            * Kosongi jika tidak diubah
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

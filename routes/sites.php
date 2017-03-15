@@ -1,0 +1,4 @@
+<?php
+$app->get('/', function () {
+
+});

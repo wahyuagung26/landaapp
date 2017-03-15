@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+            <meta content="Landa Systems" name="author">
+                <title>
+                    Template
+                </title>
+                <!-- Application CSS !-->
+                <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+                <link href="css/toaster.min.css" rel="stylesheet" type="text/css"/>
+                <link href="css/select.min.css" rel="stylesheet" type="text/css"/>
+                <link href="css/loading-bar.min.css" rel="stylesheet" type="text/css"/>
+                <!-- End Application CSS !-->
+                <!-- Custom CSS !-->
+                <link href="css/style.css" rel="stylesheet" type="text/css"/>
+            </meta>
+        </meta>
+    </head>
+    <body ng-controller="AppCtrl">
+        <toaster-container toaster-options="{'body-output-type': 'trustedHtml'}">
+        </toaster-container>
+        <div id="app" ui-view="">
+        </div>
+        <!-- Library JS -->
+        <script src="js/library/jquery.min.js"></script>
+        <script src="js/library/angular.js"></script>
+        <script src="js/library/angular-locale_id-id.js"></script>
+        <script src="js/library/bootstrap.min.js"></script>
+        <script src="js/library/moment.min.js"></script>
+        <script src="js/library/ui-bootstrap-tpls.js"></script>
+        <script src="js/library/angular-ui-router.js"></script> 
+        <script src="js/library/angular-sanitize.js"></script> 
+        <script src="js/library/ocLazyLoad.js"></script>
+        <script src="js/library/smart-table.min.js"></script>
+        <script src="js/library/toaster.min.js"></script>
+        <script src="js/library/select.min.js"></script>
+        <script src="js/library/loading-bar.js"></script>
+        <script src="js/library/highcharts.js"></script>
+        <script src="js/library/highcharts-ng.js"></script>
+        <script src="js/library/exporting.js"></script>
+        <script src="js/library/ckeditor/ckeditor.js"></script>
+        <script src="js/library/FileSaver.js"></script>
+        <!-- End Library JS -->
+        <!-- Application JS -->
+        <script src="js/app.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/config.lazyload.js"></script>
+        <script src="js/config.router.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="js/data.js"></script>
+        <!-- End -->
+    </body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "name": "tindadmin/core",
+    "description": "",
+    "type": "package",
+    "authors": [{
+        "name": "wahyu agung",
+        "email": "agung@landa.co.id"
+    }],
+    "require": {
+        "slim/slim": "^3.0",
+        "cahkampung/landa-db": "^1.0",
+        "wixel/gump": "dev-master",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "class"
+        }
+    }
+}
