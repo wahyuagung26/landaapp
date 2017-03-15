@@ -6,6 +6,8 @@
         "name": "wahyu agung",
         "email": "agung@landa.co.id"
     }],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "slim/slim": "^3.0",
         "cahkampung/landa-db": "^1.0",
