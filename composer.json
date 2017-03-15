@@ -6,7 +6,7 @@
         "name": "wahyu agung",
         "email": "agung@landa.co.id"
     }],
-    "minimum-stability": "dev",
+    "minimum-stability": "dev-master",
     "prefer-stable": true,
     "require": {
         "slim/slim": "^3.0",
