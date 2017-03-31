@@ -15,6 +15,10 @@ a {
     cursor: pointer;
 }
 
+.app-content {
+    min-height: 600px;
+}
+
 
 /** End Body */
 
@@ -44,6 +48,11 @@ a {
     font-weight: 700;
 }
 
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
 }
@@ -57,6 +66,11 @@ a {
 
 #navbar {
     padding-right: 15px;
+}
+
+.img-logo {
+    display: inline !important;
+    width: 40px !important;
 }
 
 
@@ -112,10 +126,14 @@ a {
 /** End Panel */
 
 
-/** Text align */
+/** Text style */
 
 .text-left {
     text-align: left !important;
+}
+
+.text-bold {
+    font-weight: bold !important;
 }
 
 
@@ -152,6 +170,14 @@ a {
 .control-label {
     text-align: left !important;
     font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-action {
+    margin-top: 15px;
 }
 
 .btn {
@@ -194,8 +220,23 @@ a {
     color: #fff;
 }
 
+.btn-success {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.btn-warning {
+    color: #fff;
+}
+
 .btn:focus {
     outline: none !important;
+}
+
+.btn.active, .btn:active {
+    color: #fff !important;
+    background-color: #545353 !important;
+    border-color: #adadad;
 }
 
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
@@ -216,15 +257,121 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     font-size: 14px !important;
 }
 
+.label {
+    font-size: 90% !important;
+}
+
+.i-checks {
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.i-checks input {
+    position: absolute;
+    margin-left: -20px;
+    opacity: 0;
+}
+
+.i-checks input:checked + i {
+    border-color: #23b7e5;
+}
+
+.i-checks > i {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    margin-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #cfdadd;
+}
+
+.i-checks input:checked + i:before {
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: #23b7e5;
+}
+
+.i-checks > i:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    content: "";
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
 
 /** End Form */
 
 
+/** Table */
+
+.table tr {
+    cursor: pointer;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle !important;
+}
+
+.table-bordered th {
+    text-align: center;
+}
+
+.table-pagination {
+    text-align: center;
+}
+
+.table-pagination input {
+    text-align: center;
+    width: 50px;
+}
+
+
+/** End Table */
+
+
+/** UI Select */
+
+.ui-select-bootstrap>.ui-select-match>.btn {
+    background-color: #fff;
+    text-align: left!important;
+    border: 1px solid #ccc;
+}
+
+.btn-default-focus {
+    color: #333;
+    background-color: #EBEBEB;
+    border-color: none;
+    text-decoration: none;
+    outline: none;
+    outline-offset: none;
+    box-shadow: none;
+}
+
+
+/** End  */
+
+
 /** Background */
 
-.bg-violet {
+.bg-red {
     background-color: #db2828;
     color: #fff;
+}
+
+.bg-red:hover {
+    background-color: rgba(219, 40, 40, 0.88);
 }
 
 .bg-orange {
@@ -232,9 +379,17 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     color: #fff;
 }
 
+.bg-orange:hover {
+    background-color: rgba(242, 113, 28, 0.88);
+}
+
 .bg-yellow {
     background-color: #fbbd08;
     color: #fff;
+}
+
+.bg-yellow:hover {
+    background-color: rgba(251, 189, 8, 0.88);
 }
 
 .bg-olive {
@@ -242,9 +397,17 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     color: #fff;
 }
 
+.bg-olive:hover {
+    background-color: rgba(167, 189, 13, 0.88);
+}
+
 .bg-green {
     background-color: #21ba45;
     color: #fff;
+}
+
+.bg-green:hover {
+    background-color: rgba(33, 186, 69, 0.88);
 }
 
 .bg-teal {
@@ -252,14 +415,26 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     color: #fff;
 }
 
+.bg-teal:hover {
+    background-color: rgba(0, 181, 173, 0.88);
+}
+
 .bg-blue {
     background-color: #1678c2;
     color: #fff;
 }
 
+.bg-blue:hover {
+    background-color: rgba(22, 120, 194, 0.88);
+}
+
 .bg-violet {
     background-color: #6435c9;
     color: #fff;
+}
+
+.bg-violet:hover {
+    background-color: rgba(100, 53, 201, 0.88);
 }
 
 .bg-purple {
@@ -272,14 +447,26 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     color: #fff;
 }
 
+.bg-pink:hover {
+    background-color: rgba(230, 26, 141, 0.88);
+}
+
 .bg-brown {
     background-color: #a5673f;
     color: #fff;
 }
 
+.bg-brown:hover {
+    background-color: rgba(165, 103, 63, 0.88);
+}
+
 .bg-grey {
     background-color: #767676;
     color: #fff;
+}
+
+.bg-grey:hover {
+    background-color: rgba(118, 118, 118, 0.88);
 }
 
 .bg-black {
@@ -293,3 +480,61 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 
 /** End background */
+
+
+/** Heading */
+
+.h1, h1 {
+    font-size: 26px;
+    color: #616161;
+}
+
+
+/** End Heading */
+
+
+/** Button Block */
+
+.block {
+    display: block;
+}
+
+.padder {
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 16px;
+    height: 120px;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.font-thin {
+    font-weight: 300;
+    display: block;
+}
+
+.menu-icon {
+    font-size: 30px;
+}
+
+
+/** End Button Block */
+
+
+/** Footer */
+
+.footer {
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #0c82df;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+
+/** End Footer */

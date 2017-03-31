@@ -1,6 +1,6 @@
 app.factory("Data", ['$http', '$location',
     function($http, $q, $location) {
-        var serviceBase = '../api/';
+        var serviceBase = 'api/';
         var obj = {};
         obj.base = serviceBase;
         /** Request method GET */

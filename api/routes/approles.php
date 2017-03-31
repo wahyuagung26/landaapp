@@ -18,14 +18,14 @@ function validasi($data, $custom = array())
 /**
  * Get list user roles
  */
-$app->get('/api/approles/index', function ($request, $response) {
+$app->get('/approles/index', function ($request, $response) {
     $params = $request->getParams();
 
     $sort   = "id DESC";
     $offset = isset($params['offset']) ? $params['offset'] : 0;
     $limit  = isset($params['limit']) ? $params['limit'] : 10;
 
-    $db = $this->get('db');
+    $db = $this->db;
 
     /** Select roles from database */
     $db->select("*")
@@ -67,9 +67,9 @@ $app->get('/api/approles/index', function ($request, $response) {
 /**
  * Save roles
  */
-$app->post('/api/approles/save', function ($request, $response) {
+$app->post('/approles/save', function ($request, $response) {
     $data = $request->getParams();
-    $db   = $this->get('db');
+    $db   = $this->db;
 
     $validasi = validasi($data);
 
@@ -93,7 +93,7 @@ $app->post('/api/approles/save', function ($request, $response) {
  * Delete roles
  */
 $app->delete('/approles/delete/{id}', function ($request, $response) {
-    $db = $this->get('db');
+    $db = $this->db;
 
     try {
         $delete = $db->delete('m_roles', array('id' => $request->getAttribute('id')));

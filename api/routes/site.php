@@ -13,11 +13,12 @@ $app->get('/site/session', function ($request, $response) {
 $app->post('/site/login', function ($request, $response) {
     $params = $request->getParams();
 
-    $sql   = new LandaDb();
+    $sql = $this->db;
+
     $model = $sql->select("*")
         ->from("m_user")
-        ->where("=", "username", $params['username'])
-        ->andWhere("=", "password", sha1($params['password']))
+        ->where("username", "=", $params['username'])
+        ->andWhere("password", "=", sha1($params['password']))
         ->find();
 
     if (!empty($model)) {

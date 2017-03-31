@@ -50,7 +50,7 @@ function getUrlFile()
     $getUri = explode("/", $uri);
 
     if ($getUri[0] == 'api') {
-        $file = 'routes/api/' . (isset($getUri[1]) ? $getUri[1] : 'sites') . '.php';
+        $file = 'routes/' . (isset($getUri[1]) ? $getUri[1] : 'sites') . '.php';
 
         if (file_exists($file)) {
             return $file;

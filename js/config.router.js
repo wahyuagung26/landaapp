@@ -4,15 +4,22 @@ angular.module('app').run(
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             /** Pengecekan login */
-            // $rootScope.$on("$stateChangeStart", function(event, toState) {
-            //     Data.get('site/session').then(function(results) {
-            //         if (results.status_code == 200) {
-            //             $rootScope.user = results.data.user;
-            //         } else {
-            //             $state.go("access.signin");
-            //         }
-            //     });
-            // });
+            $rootScope.$on("$stateChangeStart", function(event, toState) {
+                Data.get('site/session').then(function(results) {
+                    if (results.status_code == 200) {
+                        $rootScope.user = results.data.user;
+                        /** Check hak akses */
+                        // if (globalmenu.indexOf(toState.name) >= 0) {} else {
+                        //     if (results.data.user.akses[(toState.name).replace(".", "_")]) {} else {
+                        //         $state.go("access.forbidden");
+                        //     }
+                        // }
+                        /** End */
+                    } else {
+                        $state.go("access.signin");
+                    }
+                });
+            });
             /** End */
         }
     ]).config(

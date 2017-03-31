@@ -76,7 +76,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
     $scope.trash = function(row) {
         if (confirm("Apa anda yakin akan MENGHAPUS item ini ?")) {
             row.is_deleted = 1;
-            Data.post(control_link + '/update', row).then(function(result) {
+            Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
         }
@@ -85,7 +85,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
     $scope.restore = function(row) {
         if (confirm("Apa anda yakin akan MERESTORE item ini ?")) {
             row.is_deleted = 0;
-            Data.post(control_link + '/update', row).then(function(result) {
+            Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
         }

@@ -1,14 +1,16 @@
 <div ng-controller="profilCtrl">
-    <div class="title-head">
-        <h1>
-            Edit Profile
-        </h1>
-    </div>
     <div class="container-fluid">
-        <div class="panel panel-default">
+        <div class="panel panel-blank">
             <div class="panel-heading">
-                Edit Profile
-                <div class="btn-group pull-right" role="group" style="margin-top: -5px;">
+                <h2 class="text-left">
+                    Edit Profile
+                </h2>
+                <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
+                    <button class="btn btn-default" ui-sref="site.dashboard">
+                        <i class="glyphicon glyphicon-arrow-left">
+                        </i>
+                        Kembali
+                    </button>
                     <button class="btn btn-primary" ng-click="save(form)" ng-hide="is_view" type="submit">
                         <i class="glyphicon glyphicon-save">
                         </i>
@@ -18,8 +20,8 @@
             </div>
             <div class="panel-body">
                 <form class="form-horizontal form-validation " name="landaform">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-2 control-label required">
                             Nama
                         </label>
                         <div class="col-sm-4">
@@ -27,8 +29,8 @@
                             </input>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-2 control-label required">
                             Username
                         </label>
                         <div class="col-sm-4">
@@ -36,14 +38,16 @@
                             </input>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-sm">
                         <label class="col-sm-2 control-label">
                             Password
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" ng-disabled="is_view" ng-model="form.password" type="text">
+                            <input class="form-control" ng-disabled="is_view" ng-model="form.password" type="password">
                             </input>
-                            <p class="block-help">* Kosongi jika password tidak diubah</p>
+                            <p class="block-help">
+                                * Kosongi jika password tidak diubah
+                            </p>
                         </div>
                     </div>
                 </form>

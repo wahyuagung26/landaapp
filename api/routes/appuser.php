@@ -21,7 +21,7 @@ function validasi($data, $custom = array())
  * get user detail for update profile
  */
 $app->get('/appuser/view', function ($request, $response) {
-    $db = $this->get('db');
+    $db = $this->db;
 
     $data = $db->find('select id, nama, username, m_roles_id from m_user where id = "' . $_SESSION['user']['id'] . '"');
 
@@ -31,14 +31,14 @@ $app->get('/appuser/view', function ($request, $response) {
 /**
  * get user list
  */
-$app->get('/api/appuser/index', function ($request, $response) {
+$app->get('/appuser/index', function ($request, $response) {
     $params = $_REQUEST;
 
     $sort   = "id DESC";
     $offset = isset($params['offset']) ? $params['offset'] : 0;
     $limit  = isset($params['limit']) ? $params['limit'] : 10;
 
-    $db = $this->get('db');
+    $db = $this->db;
 
     $db->select("m_user.*, m_roles.nama as hakakses")
         ->from('m_user')
@@ -76,10 +76,10 @@ $app->get('/api/appuser/index', function ($request, $response) {
 /**
  * create user
  */
-$app->post('/api/appuser/create', function ($request, $response) {
+$app->post('/appuser/create', function ($request, $response) {
     $data = $request->getParams();
 
-    $db = $this->get('db');
+    $db = $this->db;
 
     $validasi = validasi($data, ['password' => 'required']);
 
@@ -102,7 +102,7 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
     $data = $request->getParams();
     $id   = $_SESSION['user']['id'];
 
-    $db = $this->get('db');
+    $db = $this->db;
 
     if (!empty($data['password'])) {
         $data['password'] = sha1($model['password']);
@@ -129,7 +129,7 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
 $app->post('/appuser/update', function ($request, $response) {
     $data = $request->getParams();
 
-    $db = $this->get('db');
+    $db = $this->db;
 
     if (!empty($params['password'])) {
         $data['password'] = sha1($data['password']);
@@ -154,7 +154,7 @@ $app->post('/appuser/update', function ($request, $response) {
  * delete user
  */
 $app->delete('/appuser/delete/{id}', function ($request, $response) {
-    $db = $this->get('db');
+    $db = $this->db;
 
     try {
         $delete = $db->delete('m_user', array('id' => $request->getAttribute('id')));
