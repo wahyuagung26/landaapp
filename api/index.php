@@ -4,7 +4,7 @@ use \Psr\Http\Message\ServerRequestInterface;
 
 session_start();
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 /** load .env file */
 $dotenv = new Dotenv\Dotenv(__DIR__);
