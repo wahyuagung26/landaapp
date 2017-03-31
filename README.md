@@ -4,6 +4,7 @@ Slim Framework 3 with Angular 1.4 For Web App
 ## How To Install ##
 
 * Buka terminal
+* Install Core Project dengan perintah `composer create-project slimangular/core YOUR_PROJECT`
 * Jalankan perintah `cd ROOT_FOLDER_PROJECT/api`
 * Jalankan perintah `composer install --no-dev`
 * Buat database baru
