@@ -4,7 +4,7 @@ use \Psr\Http\Message\ServerRequestInterface;
 
 session_start();
 
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 /** load .env file */
 $dotenv = new Dotenv\Dotenv(__DIR__);
@@ -15,9 +15,13 @@ require 'systems/database.php';
 require 'systems/systems.php';
 require 'systems/functions.php';
 
-$container = new \Slim\Container;
+$display = (getenv('DISPLAY_ERRORS') == 'true') ? true : false;
 
-$app = new \Slim\App($container);
+$config = [
+    'displayErrorDetails' => $display,
+];
+
+$app = new \Slim\App(["settings" => $config]);
 
 require 'systems/dependencies.php';
 
@@ -30,4 +34,3 @@ $file = getUrlFile();
 require $file;
 
 $app->run();
-
