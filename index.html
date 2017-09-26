@@ -5,15 +5,13 @@
             <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
             <meta content="Landa Systems" name="author">
                 <title>
-                    Master Slim 3 Angular Js
+                    LANDA CORE
                 </title>
                 <!-- Application CSS !-->
                 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-                <link href="css/toaster.min.css" rel="stylesheet" type="text/css"/>
-                <link href="css/select.min.css" rel="stylesheet" type="text/css"/>
-                <link href="css/loading-bar.min.css" rel="stylesheet" type="text/css"/>
                 <!-- End Application CSS !-->
                 <!-- Custom CSS !-->
+                <link href="vendor/angular-material/angular-material.min.css" rel="stylesheet" type="text/css"/>
                 <link href="css/style.css" rel="stylesheet" type="text/css"/>
             </meta>
         </meta>
@@ -23,25 +21,24 @@
         </toaster-container>
         <div id="app" ui-view="">
         </div>
-        <!-- Library JS -->
-        <script src="js/library/jquery.min.js"></script>
-        <script src="js/library/angular.js"></script>
-        <script src="js/library/angular-locale_id-id.js"></script>
-        <script src="js/library/bootstrap.min.js"></script>
-        <script src="js/library/moment.min.js"></script>
-        <script src="js/library/ui-bootstrap-tpls.js"></script>
-        <script src="js/library/angular-ui-router.js"></script> 
-        <script src="js/library/angular-sanitize.js"></script> 
-        <script src="js/library/ocLazyLoad.js"></script>
-        <script src="js/library/smart-table.min.js"></script>
-        <script src="js/library/toaster.min.js"></script>
-        <script src="js/library/select.min.js"></script>
-        <script src="js/library/loading-bar.js"></script>
-        <script src="js/library/highcharts.js"></script>
-        <script src="js/library/highcharts-ng.js"></script>
-        <script src="js/library/exporting.js"></script>
-        <script src="js/library/FileSaver.js"></script>
-        <!-- End Library JS -->
+        <!-- Jquery JS & Bootstrap-->
+        <script src="vendor/jquery/dist/jquery.min.js"></script>
+        <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Angular -->
+        <script src="vendor/angular/angular.min.js"></script>
+        <script src="vendor/angular-animate/angular-animate.min.js"></script>
+        <script src="vendor/angular-aria/angular-aria.min.js"></script>
+        <script src="vendor/angular-material/angular-material.min.js"></script>
+        <script src="vendor/angular-messages/angular-messages.min.js"></script>
+        <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="vendor/angular-smart-table/dist/smart-table.min.js"></script>
+        <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <!-- Router -->
+        <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="vendor/angular-ui-router/release/stateEvents.min.js"></script>
+        <!-- Libary -->
+        <script src="vendor/AngularJS-Toaster/toaster.min.js"></script>
+        <script src="vendor/oclazyload/dist/ocLazyLoad.min.js"></script>
         <!-- Application JS -->
         <script src="js/app.js"></script>
         <script src="js/config.js"></script>
@@ -50,6 +47,5 @@
         <script src="js/main.js"></script>
         <script src="js/directives.js"></script>
         <script src="js/data.js"></script>
-        <!-- End -->
     </body>
 </html>

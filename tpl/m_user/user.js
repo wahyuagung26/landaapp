@@ -1,12 +1,14 @@
 app.controller('userCtrl', function($scope, Data, toaster) {
     var tableStateRef;
     var control_link = "appuser";
+    $scope.formTitle = '';
     $scope.displayed = [];
     $scope.form = {
         password: ''
     };
     $scope.is_edit = false;
     $scope.is_view = false;
+    $scope.listHakakses = [];
     /** get list data */
     $scope.callServer = function callServer(tableState) {
         tableStateRef = tableState;
@@ -33,15 +35,18 @@ app.controller('userCtrl', function($scope, Data, toaster) {
         });
     };
     /** get roles list */
-    Data.get('approles/index').then(function(data) {
-        $scope.listHakakses = data.data.list;
-    });
+    $scope.getRoles = function() {
+        Data.get('approles/index').then(function(data) {
+            $scope.listHakakses = data.data.list;
+        });
+    }
     /** create */
     $scope.create = function(form) {
         $scope.is_edit = true;
         $scope.is_view = false;
         $scope.is_create = true;
         $scope.formtitle = "Form Tambah Data";
+        $scope.getRoles();
         $scope.form = {};
     };
     /** update */
@@ -49,6 +54,7 @@ app.controller('userCtrl', function($scope, Data, toaster) {
         $scope.is_edit = true;
         $scope.is_view = false;
         $scope.formtitle = "Edit Data : " + form.username;
+        $scope.getRoles();
         $scope.form = form;
         $scope.form.password = '';
     };
@@ -57,6 +63,7 @@ app.controller('userCtrl', function($scope, Data, toaster) {
         $scope.is_edit = true;
         $scope.is_view = true;
         $scope.formtitle = "Lihat Data : " + form.username;
+        $scope.getRoles();
         $scope.form = form;
         $scope.form.password = '';
     };

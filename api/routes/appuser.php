@@ -48,7 +48,11 @@ $app->get('/appuser/index', function ($request, $response) {
     if (isset($params['filter'])) {
         $filter = (array) json_decode($params['filter']);
         foreach ($filter as $key => $val) {
-            $db->where($key, 'LIKE', $val);
+            if ($key == 'nama') {
+                $db->where('m_user.nama', 'LIKE', $val);
+            } else if ($key == 'is_deleted') {
+                $db->where('m_user.is_deleted', '=', $val);
+            }
         }
     }
 
@@ -69,6 +73,11 @@ $app->get('/appuser/index', function ($request, $response) {
 
     $models    = $db->findAll();
     $totalItem = $db->count();
+
+    /** set m_roles_id to string */
+    foreach($models as $key => $val){
+        $val->m_roles_id = (string) $val->m_roles_id;
+    }
 
     return successResponse($response, ['list' => $models, 'totalItems' => $totalItem]);
 });
@@ -105,7 +114,7 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
     $db = $this->db;
 
     if (!empty($data['password'])) {
-        $data['password'] = sha1($model['password']);
+        $data['password'] = sha1($data['password']);
     } else {
         unset($data['password']);
     }

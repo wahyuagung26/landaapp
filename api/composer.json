@@ -1,5 +1,5 @@
 {
-    "name": "slimangular/core",
+    "name": "landa/core",
     "description": "",
     "type": "package",
     "authors": [{
@@ -9,7 +9,8 @@
     "prefer-stable": true,
     "require": {
         "slim/slim": "^3.0",
-        "cahkampung/landa-db": "^1.2.1",
+        "cahkampung/landa-db": "*",
+        "cahkampung/landa-migrasi": "*",
         "wixel/gump": "dev-master",
         "vlucas/phpdotenv": "^2.4",
         "robmorgan/phinx": "^0.7.0"

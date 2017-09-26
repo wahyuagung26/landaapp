@@ -1,4 +1,4 @@
-app.controller('dashboardCtrl', function ($scope, Data, toaster, $state) {
+app.controller('dashboardCtrl', function ($scope, Data, $state) {
     $scope.authError = null;
 
     $scope.login = function (form) {

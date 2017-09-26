@@ -1,26 +1,27 @@
 angular.module('app').run(
-    ['$rootScope', '$state', '$stateParams', 'Data',
-        function($rootScope, $state, $stateParams, Data) {
+    ['$rootScope', '$state', '$stateParams', 'Data', '$transitions',
+        function($rootScope, $state, $stateParams, Data, $transitions) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             /** Pengecekan login */
-            $rootScope.$on("$stateChangeStart", function(event, toState) {
+            $transitions.onStart({}, function($transition$) {
+                var toState = $transition$.$to();
                 Data.get('site/session').then(function(results) {
                     if (results.status_code == 200) {
                         $rootScope.user = results.data.user;
                         /** Check hak akses */
-                        // if (globalmenu.indexOf(toState.name) >= 0) {} else {
-                        //     if (results.data.user.akses[(toState.name).replace(".", "_")]) {} else {
-                        //         $state.go("access.forbidden");
-                        //     }
-                        // }
+                        var globalmenu = ['site.dashboard', 'master.userprofile', 'access.signin'];
+                        if (globalmenu.indexOf(toState.name) >= 0) {} else {
+                            if (results.data.user.akses[(toState.name).replace(".", "_")]) {} else {
+                                $state.go("access.forbidden");
+                            }
+                        }
                         /** End */
                     } else {
                         $state.go("access.signin");
                     }
                 });
             });
-            /** End */
         }
     ]).config(
     ['$stateProvider', '$urlRouterProvider',
@@ -98,6 +99,6 @@ angular.module('app').run(
                         ]
                     }
                 })
-                /** End master request */
+            /** End master request */
         }
     ]);

@@ -1,7 +1,7 @@
 // config
 var app = angular.module('app').config(
-    ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
-        function($controllerProvider, $compileProvider, $filterProvider, $provide) {
+    ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$logProvider',
+        function($controllerProvider, $compileProvider, $filterProvider, $provide, $logProvider) {
             // lazy controller, directive and service
             app.controller = $controllerProvider.register;
             app.directive = $compileProvider.directive;
@@ -10,5 +10,6 @@ var app = angular.module('app').config(
             app.service = $provide.service;
             app.constant = $provide.constant;
             app.value = $provide.value;
+            $logProvider.debugEnabled(false);
         }
-    ])
+    ]);

@@ -4,7 +4,7 @@
             <div class="col-md-12" st-pipe="callServer" st-table="displayed">
                 <div class="panel panel-blank">
                     <div class="panel-heading">
-                        <h2 class="text-left">
+                        <h2 class="text-left float-left">
                             Master User
                         </h2>
                         <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
@@ -32,7 +32,7 @@
                                                     Nama User
                                                 </label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" st-search="m_user.nama" type="text">
+                                                    <input class="form-control" st-search="nama" type="text">
                                                     </input>
                                                 </div>
                                             </div>
@@ -43,7 +43,7 @@
                                                     Status
                                                 </label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-control" st-search="m_user.is_deleted" stinputevent="change">
+                                                    <select class="form-control" st-search="is_deleted" stinputevent="change">
                                                         <option value="0">
                                                             Aktif
                                                         </option>
@@ -59,7 +59,7 @@
                             </form>
                         </div>
                         <!-- End -->
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover tableBodyScroll">
                             <thead>
                                 <tr>
                                     <th style="text-align: left;">
@@ -88,26 +88,26 @@
                                     </td>
                                     <td>
                                         <div class="btn-group pull-right" role="group">
-                                            <button class="btn btn-info" ng-click="update(row)" ng-if="row.is_deleted == 0" type="button">
+                                            <a class="link-edit" ng-click="update(row)" ng-if="row.is_deleted == 0">
                                                 <i class="glyphicon glyphicon-pencil">
                                                 </i>
                                                 Edit
-                                            </button>
-                                            <button class="btn btn-danger" ng-click="trash(row);" ng-if="row.is_deleted == 0" type="button">
+                                            </a>
+                                            <a class="link-delete" ng-click="trash(row);" ng-if="row.is_deleted == 0">
                                                 <i class="glyphicon glyphicon-trash">
                                                 </i>
                                                 Hapus
-                                            </button>
-                                            <button class="btn btn-info" ng-click="restore(row);" ng-if="row.is_deleted == 1" type="button">
+                                            </a>
+                                            <a class="link-edit" ng-click="restore(row);" ng-if="row.is_deleted == 1">
                                                 <i class="glyphicon glyphicon-refresh">
                                                 </i>
                                                 Restore
-                                            </button>
-                                            <button class="btn btn-danger" ng-click="delete(row);" ng-if="row.is_deleted == 1" type="button">
+                                            </a>
+                                            <a class="link-delete" ng-click="delete(row);" ng-if="row.is_deleted == 1">
                                                 <i class="glyphicon glyphicon-minus-sign">
                                                 </i>
                                                 Hapus Permanen
-                                            </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -123,8 +123,8 @@
             <div class="col-md-12">
                 <div class="panel panel-blank">
                     <div class="panel-heading">
-                        <h2 class="text-left">
-                            Master User
+                        <h2 class="text-left float-left">
+                            Master User | {{formtitle}}
                         </h2>
                         <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
                             <button class="btn btn-default" ng-click="cancel()">
@@ -143,24 +143,24 @@
                         <form class="form-horizontal form-validation " name="landaform" novalidate="">
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 control-label required">
+                                    <label class="col-sm-4 text-form required">
                                         Nama
                                     </label>
                                     <div class="col-sm-8">
-                                        <input class="form-control" ng-disabled="is_view" ng-model="form.nama" type="text">
+                                        <input class="x-form w60" ng-disabled="is_view" ng-model="form.nama" type="text">
                                         </input>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 control-label required">
+                                    <label class="col-sm-4 text-form required">
                                         Hak Akses
                                     </label>
                                     <div class="col-sm-8">
-                                        <select class="form-control" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
                                             <option value="">
                                                 -Pilih Hak Akses-
                                             </option>
-                                            <option ng-repeat="kat in listHakakses" value="{{kat.id}}">
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
                                                 {{kat.nama}}
                                             </option>
                                         </select>
@@ -169,22 +169,22 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 control-label required">
+                                    <label class="col-sm-4 text-form required">
                                         Username
                                     </label>
                                     <div class="col-sm-8">
-                                        <input class="form-control" ng-disabled="is_view" ng-model="form.username" type="text">
+                                        <input class="x-form w60" ng-disabled="is_view" ng-model="form.username" type="text">
                                         </input>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 control-label">
+                                    <label class="col-sm-4 text-form">
                                         Password
                                     </label>
                                     <div class="col-sm-8">
-                                        <input class="form-control" ng-disabled="is_view" ng-model="form.password" type="password">
+                                        <input class="x-form w60" ng-disabled="is_view" ng-model="form.password" type="password">
                                         </input>
-                                        <p class="help-block" ng-if="!is_create">
+                                        <p class="block-help" ng-if="!is_create">
                                             * Kosongi jika tidak diubah
                                         </p>
                                     </div>

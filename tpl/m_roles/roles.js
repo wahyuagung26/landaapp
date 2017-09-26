@@ -66,9 +66,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
     };
     /** cancel */
     $scope.cancel = function() {
-        if (!$scope.is_view) {
-            $scope.callServer(tableStateRef);
-        }
+        $scope.callServer(tableStateRef);
         $scope.is_edit = false;
         $scope.is_view = false;
     };
@@ -78,6 +76,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
             row.is_deleted = 1;
             Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
+                $scope.callServer(tableStateRef);
             });
         }
     };
@@ -87,6 +86,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
             row.is_deleted = 0;
             Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
+                $scope.callServer(tableStateRef);
             });
         }
     };
@@ -95,6 +95,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
         if (confirm("Apa anda yakin akan MENGHAPUS PERMANENT item ini ?")) {
             Data.delete(control_link + '/delete/' + row.id).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
+                $scope.callServer(tableStateRef);
             });
         }
     };

@@ -12,13 +12,16 @@ $app->get('/site/session', function ($request, $response) {
 
 $app->post('/site/login', function ($request, $response) {
     $params = $request->getParams();
+    $sql    = $this->db;
 
-    $sql = $this->db;
+    $username = isset($params['username']) ? $params['username'] : '';
+    $password = isset($params['password']) ? $params['password'] : '';
 
-    $model = $sql->select("*")
+    $model = $sql->select("m_user.*, m_roles.akses")
         ->from("m_user")
-        ->where("username", "=", $params['username'])
-        ->andWhere("password", "=", sha1($params['password']))
+        ->leftJoin("m_roles", "m_roles.id = m_user.m_roles_id")
+        ->where("username", "=", $username)
+        ->andWhere("password", "=", sha1($password))
         ->find();
 
     if (!empty($model)) {
@@ -26,6 +29,7 @@ $app->post('/site/login', function ($request, $response) {
         $_SESSION['user']['username']   = $model->username;
         $_SESSION['user']['nama']       = $model->nama;
         $_SESSION['user']['m_roles_id'] = $model->m_roles_id;
+        $_SESSION['user']['akses']      = json_decode($model->akses);
 
         return successResponse($response, $_SESSION);
     }

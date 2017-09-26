@@ -1,9 +1,17 @@
+/** Font */
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+/** End Font */
+
+
 /** Body */
 
 body {
     font-size: 13px;
     color: #1f1f1f;
-    font-family: Source Sans Pro, sans-serif;
+    /*font-family: Source Sans Pro, sans-serif;*/
+    font-family: 'Work Sans', sans-serif;
     background-color: #e8ebf1;
     -webkit-font-smoothing: antialiased;
     line-height: 1.42857143;
@@ -16,17 +24,103 @@ a {
 }
 
 .app-content {
-    min-height: 600px;
+    /*min-height: 600px;*/
+}
+
+#app {
+    background-color: #e8ebf1;
+}
+
+.block-help {
+    font-size: 11px;
+    margin-top: 5px;
 }
 
 
 /** End Body */
 
 
+/** Table */
+
+.tableBodyScroll tbody {
+    display: block;
+    max-height: 39vh;
+    overflow-y: scroll;
+}
+
+.tableBodyScroll thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.pagination>li>a {
+    font-weight: bolder;
+}
+
+th {
+    font-size: 12.3px;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
+}
+
+td {
+    font-size: 12.3px;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.link-edit {
+    color: #156eb1;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-weight: 500;
+}
+
+.link-edit:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.link-delete {
+    color: #b52222;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-weight: 500;
+}
+
+.link-delete:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+
+/** End Table */
+
+
 /** Navbar */
 
-.navbar-default {
+.org-img {
+    width: 110px;
+}
+
+.logo-size {
+    width: 110px;
+    height: 103px;
+    overflow: hidden;
+}
+
+.navbar {
+    height: 105px;
+}
+
+.bg-white {
     background-color: #fff;
+}
+
+.navbar-default {
+    background-color: #3e83ff;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.34);
 }
 
 .navbar-header {
@@ -43,9 +137,11 @@ a {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #3c3d3e;
-    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-weight: 700;
+    color: #000;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: .3px;
+    font-size: 12px;
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
@@ -64,13 +160,57 @@ a {
     box-shadow: 0 2px 2px rgba(0, 0, 0, .175);
 }
 
+.navbar-nav>li>a {
+    padding-bottom: 7px;
+    padding-top: 7px;
+    color: #fff;
+}
+
 #navbar {
     padding-right: 15px;
+}
+
+#logo-box {
+    background-color: #C8C8CD;
+    border: 0.1px solid #EFEFEF;
+    border-radius: 3px;
+    height: 110px;
+    position: absolute;
+    margin: 10px 0 0 20px;
+    padding: 2px;
+    width: 116px;
+    text-align: center;
+    /* z-index: 19000; */
+}
+
+#title-aplikasi {
+    color: #fff;
+    /*font-family: "courier";*/
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bolder;
+    margin-top: 22px;
+    margin-bottom: 22px;
 }
 
 .img-logo {
     display: inline !important;
     width: 40px !important;
+}
+
+.top-header {
+    height: 70px;
+}
+
+.user-info {
+    margin-right: 15px;
+}
+
+.user-info li a {
+    color: #fff!important;
+}
+
+.user-info li a:hover {
+    color: #000!important;
 }
 
 
@@ -79,16 +219,19 @@ a {
 
 /** Dropdown Menu */
 
-.dropdown-menu > li {
+.dropdown-menu>li {
     cursor: pointer;
 }
 
-.dropdown-menu > li > a {
+.dropdown-menu>li>a {
     padding: 5px 15px;
-    font-size: 13px;
+    color: #000!important;
+    font-family: Lato, Helvetica Neue, 'Arial', Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-size: 12px;
 }
 
-.dropdown-menu > li > a > i {
+.dropdown-menu>li>a>i {
     font-size: 10px;
 }
 
@@ -107,7 +250,7 @@ a {
     border-radius: 0px;
 }
 
-.panel-blank > .panel-heading {
+.panel-blank>.panel-heading {
     border-bottom: 1px solid #dddddd;
     font-weight: normal;
     background: none;
@@ -116,9 +259,9 @@ a {
 }
 
 .panel-heading h2 {
-    font-size: 24px;
-    font-weight: inherit;
-    color: #7A7A7A;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    color: #000000;
     margin-top: 10px;
 }
 
@@ -142,12 +285,16 @@ a {
 
 /** Float */
 
-.text-left {
-    float: left !important;
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
 
 
-/** End float */
+/** End Float */
 
 
 /** Margin */
@@ -156,11 +303,95 @@ a {
     margin-bottom: 0px !important;
 }
 
+.bottom-10 {
+    margin-bottom: 10px !important;
+}
+
+.bottom-20 {
+    margin-bottom: 20px !important;
+}
+
+.left-125 {
+    margin-left: 125px;
+}
+
+.left-150 {
+    margin-left: 150px;
+}
+
 
 /** End Margin */
 
 
+/** Width */
+
+.w100 {
+    width: 100%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w60 {
+    width: 60%;
+}
+
+.w40 {
+    width: 40%;
+}
+
+.w20 {
+    width: 20%;
+}
+
+
 /** Form */
+
+label {
+    font-weight: normal;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.list-group-item {
+    padding: 5px 5px;
+}
+
+.row-full {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.formScroll {
+    padding-right: 15px;
+    height: 61vh;
+    overflow-y: scroll;
+}
+
+.x-form {
+    padding: 4px 6px 3px 6px;
+    background: white repeat-x 0 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver #d9d9d9 #d9d9d9;
+    height: 24px;
+    line-height: 15px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12.3px !important;
+}
+
+.text-form {
+    height: 24px;
+    font-size: 12px;
+    margin-top: 0px;
+    padding-top: 4px!important;
+}
+
+.form-cari {
+    padding: 5px;
+    margin-bottom: 0px;
+}
 
 .required::after {
     content: '*';
@@ -168,6 +399,7 @@ a {
 }
 
 .control-label {
+    font-family: 'Work Sans', sans-serif;
     text-align: left !important;
     font-weight: 300;
 }
@@ -190,7 +422,7 @@ a {
     color: rgba(0, 0, 0, .6);
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 12px;
-    padding: .6em 1.5em .6em;
+    padding: .4em 1em .4em;
     font-weight: 700;
     text-decoration: none;
 }
@@ -257,13 +489,11 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     font-size: 14px !important;
 }
 
-.label {
-    font-size: 90% !important;
-}
-
 .i-checks {
+    font-size: 12.3px !important;
     padding-left: 20px;
     cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .i-checks input {
@@ -272,11 +502,11 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     opacity: 0;
 }
 
-.i-checks input:checked + i {
+.i-checks input:checked+i {
     border-color: #23b7e5;
 }
 
-.i-checks > i {
+.i-checks>i {
     position: relative;
     display: inline-block;
     width: 20px;
@@ -290,7 +520,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     border: 1px solid #cfdadd;
 }
 
-.i-checks input:checked + i:before {
+.i-checks input:checked+i:before {
     top: 4px;
     left: 4px;
     width: 10px;
@@ -298,7 +528,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     background-color: #23b7e5;
 }
 
-.i-checks > i:before {
+.i-checks>i:before {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -538,3 +768,83 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 
 /** End Footer */
+
+
+/**Login Page*/
+
+.access-main {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    top: 0;
+}
+
+.access-main section {
+    padding: 0;
+    height: 100%;
+}
+
+.clearfix {
+    display: block;
+    width: 100%;
+}
+
+.section {
+    padding: 60px 30px;
+    position: relative;
+}
+
+.access-main section .access-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ECEBE9;
+    width: calc(100% - 400px);
+    overflow: hidden;
+}
+
+.access-main section .access-img.signin {
+    background-image: url(https://accounting.sleekr.co/images/bg-login-new.jpg);
+}
+
+.access-main section .access-form {
+    width: 400px;
+    padding: 50px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    overflow: auto !important;
+}
+
+.access-main section .access-img, .access-main section .access-form {
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.table-ds {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.table-ds .table-cell-ds {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.str-21 {
+    font-size: 21px;
+    line-height: 29px;
+    font-weight: bolder;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.btn-login {
+    font-size: 14px;
+}
+
+
+/**End Login Page*/

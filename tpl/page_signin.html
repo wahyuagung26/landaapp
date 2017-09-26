@@ -1,34 +1,42 @@
-<div class="container img-rounded" ng-controller="siteCtrl" style="border: 2px solid #ddd;padding:20px;width:280px;margin-top: 50px;background-color: white">
-    <div class="m-b-lg">
-        <div class="wrapper text-center" style="margin-bottom: 20px">
-            <!-- <img class="img-logo" src="img/logo.png"/> -->
-            <br class="clearfix"/>
+<div class="access-main" ng-controller="siteCtrl">
+    <section class="clearfix">
+        <div class="access-img signin">
         </div>
-        <form class="form-validation" name="form">
-            <div class="text-danger wrapper text-center" ng-show="authError">
-                {{authError}}
-            </div>
-            <div class="list-group list-group-sm">
-                <div class="list-group-item">
-                    <input class="form-control no-border" ng-model="form.username" placeholder="Username" required="" type="text">
-                    </input>
+        <div class="access-form">
+            <div class="table-ds">
+                <div class="table-cell-ds">
+                    <center>
+                        <img src="http://www.landa.co.id/img/logo.png"/>
+                    </center>
+                    <h2 class="str-21 outer-spaced-top-30">
+                        Selamat datang
+                    </h2>
+                    <form id="login-form" name="landaform">
+                        <div class="text-danger wrapper text-center" ng-show="authError">
+                            <span ng-bind-html="authError"></span>
+                        </div>
+                        <label class="smb-16">
+                            Username
+                        </label>
+                        <fieldset class="form-group">
+                            <input class="form-control" ng-model="form.username" placeholder="" tabindex="1" type="text" value="">
+                            </input>
+                        </fieldset>
+                        <label class="smb-16">
+                            Password
+                        </label>
+                        <fieldset class="form-group">
+                            <input class="form-control" ng-model="form.password" placeholder="" tabindex="2" type="password">
+                            </input>
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block btn-login" ng-click="login(form)">
+                                Login
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="list-group-item">
-                    <input class="form-control no-border" ng-model="form.password" placeholder="Password" required="" type="password">
-                    </input>
-                </div>
             </div>
-            <button class="btn btn-danger btn-block" ng-click="login(form)" type="submit">
-                Log in
-            </button>
-            <div class="text-center" style="margin-top: 5px">
-                <small class="text-muted">
-                    <a href="#" target="_blank">
-                        Slim Angular
-                    </a>
-                    ver 1 © 2017
-                </small>
-            </div>
-        </form>
-    </div>
+        </div>
+    </section>
 </div>

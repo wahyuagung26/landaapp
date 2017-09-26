@@ -67,44 +67,6 @@ function getUrlFile()
     return 'routes/sites.php';
 }
 
-function partial($view, $locals = null)
-{
-
-    if (is_array($locals) && count($locals)) {
-        extract($locals, EXTR_SKIP);
-    }
-
-    $path = basename($view);
-    $view = preg_replace('/' . $path . '$/', "_{$path}", $view);
-    $view = "views/{$view}.php";
-
-    if (file_exists($view)) {
-        ob_start();
-        require $view;
-        return ob_get_clean();
-    } else {
-        error(500, "partial [{$view}] not found");
-    }
-
-    return '';
-}
-
-function content($value = null)
-{
-    return stash('$content$', $value);
-}
-
-function render($view, $locals = null, $layout = null)
-{
-    if (is_array($locals) && count($locals)) {
-        extract($locals, EXTR_SKIP);
-    }
-
-    ob_start();
-
-    include "views/{$view}.php";
-}
-
 function successResponse($response, $message)
 {
     return $response->withJson([

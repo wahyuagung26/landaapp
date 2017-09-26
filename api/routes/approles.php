@@ -29,7 +29,8 @@ $app->get('/approles/index', function ($request, $response) {
 
     /** Select roles from database */
     $db->select("*")
-        ->from("m_roles");
+        ->from("m_roles")
+        ->where('is_deleted', '=', 0);
 
     /** Add filter */
     if (isset($params['filter'])) {
