@@ -96,12 +96,7 @@
                                                  
                                             </button>
                                         </div>
-                                   <!--  <div class="btn-group pull-right" role="group" >
-                                        <button type="button" class="btn btn-info fa fa-pencil-square-o  " ng-if="row.is_deleted == '0'" ng-click="update(row)" tooltip="Edit"></button>
-                                        <button type="button" class="btn btn-info fa fa-recycle" ng-if="row.is_deleted == '1'" ng-click="restore(row)" tooltip="Restore"></button>
-                                        <button type="button" class="btn btn-danger fa fa-trash-o" ng-if="row.is_deleted == '0'" ng-click="trash(row);" tooltip="Trash"></button>
-                                        <button type="button" class="btn btn-danger fa fa-minus-circle" ng-if="row.is_deleted == '1'" ng-click="delete(row);" tooltip="Delete"></button>
-                                    </div> -->
+                                  
                                     </td>
                                 </tr>
                             </tbody>
@@ -153,142 +148,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-sm">
-                                    <label class="col-sm-4 text-form required">
-                                        Hak Akses
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
-                                            <option value="">
-                                                -Pilih Hak Akses-
-                                            </option>
-                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
-                                                {{kat.nama}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
+                               
+                        
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="col-sm-4 text-form required">
