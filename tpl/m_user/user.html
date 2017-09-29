@@ -5,63 +5,47 @@
                 <div class="panel panel-blank">
                     <div class="panel-heading">
                         <h2 class="text-left float-left">
-                            Master User
+                            Master Pengguna
                         </h2>
-                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
-                            <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed" ng-init="isCollapsed = false">
-                                <i class="glyphicon glyphicon-search">
-                                </i>
-                                Pencarian
-                            </button>
-                            <button class="btn btn-primary" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view">
+                        
+                    </div>
+                    <div class="panel-body">
+                        <div >
+                       
+                        </div>
+                        <!-- End -->
+                        <div class="x-header">
+                        
+                         <div class="row">
+<form class="form-horizontal form-validation" name="landaform">
+
+                                         <div class="col-sm-12 " >
+                                                    <input class="x-form w10 " st-search="nama"  placeholder="Nama User" type="text">
+                                                    </input>
+                                                   <input class="x-form w10" st-search="nama"  placeholder="Username" type="text">
+                                                    </input>
+                                                    <select class="x-form w13" st-search=""  placeholder="Status">
+                                                        <option>Aktif</option>
+                                                        <option>Terhapus</option>
+                                                    </select>
+                                                    <button class="btn btn-primary pull-right" style="" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view">
                                 <i class="glyphicon glyphicon-plus">
                                 </i>
                                 Buat Baru
                             </button>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <!-- Form pencarian -->
-                        <div ng-show="isCollapsed">
-                            <form class="form-horizontal form-validation" name="landaform">
-                                <div class="well">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group form-group-sm">
-                                                <label class="col-sm-4 control-label text-left">
-                                                    Nama User
-                                                </label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" st-search="nama" type="text">
-                                                    </input>
                                                 </div>
-                                            </div>
+                                        </form>
+                                         
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group form-group-;sm">
-                                                <label class="col-sm-4 control-label text-left">
-                                                    Status
-                                                </label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-control" st-search="is_deleted" stinputevent="change">
-                                                        <option value="0">
-                                                            Aktif
-                                                        </option>
-                                                        <option value="1">
-                                                            Terhapus
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                                        
+                                    
                         </div>
-                        <!-- End -->
                         <table class="table table-striped table-hover tableBodyScroll">
                             <thead>
                                 <tr>
+                                    <th style="text-align: left; width: 3%">
+                                        No
+                                    </th>
                                     <th style="text-align: left;">
                                         Nama
                                     </th>
@@ -77,69 +61,71 @@
                             </thead>
                             <tbody>
                                 <tr ng-dblclick="view(row)" ng-repeat="row in displayed">
-                                    <td>
+                                    <td style="text-align: left; width: 3%" >
+                                        {{$index + 1}}
+                                    </td>
+                                    <td style="text-align: left;">
                                         {{row.nama}}
                                     </td>
-                                    <td>
+                                    <td style="text-align: left;">
                                         {{row.username}}
                                     </td>
-                                    <td>
+                                    <td style="text-align: left;">
                                         {{row.hakakses}}
                                     </td>
                                     <td>
                                         <div class="btn-group pull-right" role="group">
-                                            <a class="link-edit" ng-click="update(row)" ng-if="row.is_deleted == 0">
+                                            <button class="btn btn-primary " style="" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view" ng-click="update(row)" ng-if="row.is_deleted == 0" title="Edit">
                                                 <i class="glyphicon glyphicon-pencil">
                                                 </i>
-                                                Edit
-                                            </a>
-                                            <a class="link-delete" ng-click="trash(row);" ng-if="row.is_deleted == 0">
+                                            
+                                            </button>
+                                            <button class="btn btn-danger " ng-click="trash(row);" ng-if="row.is_deleted == 0" title="Delete">
                                                 <i class="glyphicon glyphicon-trash">
                                                 </i>
-                                                Hapus
-                                            </a>
-                                            <a class="link-edit" ng-click="restore(row);" ng-if="row.is_deleted == 1">
+                                            
+                                            </button>
+                                            <button class="btn btn-warning " ng-click="restore(row);" ng-if="row.is_deleted == 1" title="Restore">
                                                 <i class="glyphicon glyphicon-refresh">
                                                 </i>
-                                                Restore
-                                            </a>
-                                            <a class="link-delete" ng-click="delete(row);" ng-if="row.is_deleted == 1">
+                                                
+                                            </button>
+                                            <button class="btn btn-danger" ng-click="delete(row);" ng-if="row.is_deleted == 1" title="Delete">
                                                 <i class="glyphicon glyphicon-minus-sign">
                                                 </i>
-                                                Hapus Permanen
-                                            </a>
+                                                 
+                                            </button>
                                         </div>
+                                   <!--  <div class="btn-group pull-right" role="group" >
+                                        <button type="button" class="btn btn-info fa fa-pencil-square-o  " ng-if="row.is_deleted == '0'" ng-click="update(row)" tooltip="Edit"></button>
+                                        <button type="button" class="btn btn-info fa fa-recycle" ng-if="row.is_deleted == '1'" ng-click="restore(row)" tooltip="Restore"></button>
+                                        <button type="button" class="btn btn-danger fa fa-trash-o" ng-if="row.is_deleted == '0'" ng-click="trash(row);" tooltip="Trash"></button>
+                                        <button type="button" class="btn btn-danger fa fa-minus-circle" ng-if="row.is_deleted == '1'" ng-click="delete(row);" tooltip="Delete"></button>
+                                    </div> -->
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
-                        </div>
+                         <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
                     </div>
+                        
+                    </div>
+                   
                 </div>
             </div>
+
         </div>
         <div class="row" ng-show="is_edit">
             <div class="col-md-12">
                 <div class="panel panel-blank">
                     <div class="panel-heading">
                         <h2 class="text-left float-left">
-                            Master User | {{formtitle}}
+                            Master Pengguna| {{formtitle}}
                         </h2>
-                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
-                            <button class="btn btn-default" ng-click="cancel()">
-                                <i class="glyphicon glyphicon-arrow-left">
-                                </i>
-                                Kembali
-                            </button>
-                            <button class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
-                                <i class="glyphicon glyphicon-save">
-                                </i>
-                                Simpan
-                            </button>
-                        </div>
+                        
                     </div>
                     <div class="panel-body">
+                        <div class="table-responsive scroll"> 
                         <form class="form-horizontal form-validation " name="landaform" novalidate="">
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
@@ -147,8 +133,144 @@
                                         Nama
                                     </label>
                                     <div class="col-sm-8">
-                                        <input class="x-form w60" ng-disabled="is_view" ng-model="form.nama" type="text">
+                                        <input autofocus="" class="x-form w60" ng-disabled="is_view" ng-model="form.nama" type="text">
                                         </input>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 text-form required">
+                                        Hak Akses
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="x-form w60" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                            <option value="">
+                                                -Pilih Hak Akses-
+                                            </option>
+                                            <option ng-repeat="kat in listHakakses" ng-selected="{{kat.id == form.m_roles_id}}" value="{{kat.id}}">
+                                                {{kat.nama}}
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
@@ -191,6 +313,23 @@
                                 </div>
                             </div>
                         </form>
+                        </div>
+                    </div>
+                   <div class="x-footer">
+                       
+
+                            <button class="btn btn-default" ng-click="cancel()">
+                                <i class="glyphicon glyphicon-arrow-left">
+                                </i>
+                                Batal
+                            </button>
+
+                            <button autosave="" class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
+                                <i class="glyphicon glyphicon-floppy-save">
+                                </i>
+                                Simpan
+                            </button>
+
                     </div>
                 </div>
             </div>

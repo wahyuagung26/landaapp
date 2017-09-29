@@ -88,30 +88,84 @@ app.controller('userCtrl', function($scope, Data, toaster) {
         $scope.is_edit = false;
         $scope.is_view = false;
     };
-    /** move data to trash */
-    $scope.trash = function(row) {
-        if (confirm("Apa anda yakin akan MENGHAPUS item ini ?")) {
-            row.is_deleted = 1;
+
+     $scope.trash = function (row) {
+    swal({
+          title: "Peingatan ! ",
+          text: "Apakah Anda Yakin Ingin Menhapus Data Ini",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Iya, di Hapus",
+          cancelButtonText: "Tidak",
+          closeOnConfirm: false,
+          closeOnCancel: false
+        },
+        function(isConfirm){
+          if (isConfirm) {
+             row.is_deleted = 1;
             Data.post(control_link + '/update', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
-        }
+            swal("Terhapus", "Data Berhasil Di Hapus.", "success");
+          } else {
+            swal("Membatalkan", "Membatalkan Menghapus Data:)", "error");
+          }
+        });
     };
-    /** restore data from trash */
-    $scope.restore = function(row) {
-        if (confirm("Apa anda yakin akan MERESTORE item ini ?")) {
+
+
+
+
+    $scope.restore = function (row) {
+    swal({
+          title: "Peingatan ! ",
+          text: "Apakah Anda Yakin Ingin Restore Data Ini",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Iya, di Restore",
+          cancelButtonText: "Tidak",
+          closeOnConfirm: false,
+          closeOnCancel: false
+        },
+        function(isConfirm){
+          if (isConfirm) {
             row.is_deleted = 0;
             Data.post(control_link + '/update', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
-        }
+            swal("Restore", "Data Berhasil Di Restore.", "success");
+          } else {
+            swal("Membatalkan", "Membatalkan Restore Data:)", "error");
+          }
+        });
     };
-    /** delete data */
-    $scope.delete = function(row) {
-        if (confirm("Apa anda yakin akan MENGHAPUS PERMANENT item ini ?")) {
-            Data.delete(control_link + '/delete/' + row.id).then(function(result) {
+
+
+  
+     $scope.delete = function (row) {
+
+            swal({
+          title: "Peringatan",
+          text: "Anda Akan Menghapus Permanent I",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Ya,di hapus",
+          cancelButtonText: "Tidak",
+          closeOnConfirm: false,
+          closeOnCancel: false
+        },
+        function(isConfirm){
+          if (isConfirm) {
+          Data.delete(control_link + '/delete/' + row.id).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
-        }
+            swal("Terhapus", "Data terhapus.", "success");
+          } else {
+            swal("Membatalkan", "Membatakan menghapus data", "error");
+          }
+        });
     };
 })

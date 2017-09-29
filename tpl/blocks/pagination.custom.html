@@ -1,5 +1,5 @@
-<nav ng-if="pages.length >= 2">
-  <ul class="pagination">
+<nav ng-if="pages.length >= 2" >
+  <ul class="pagination" style="margin: 0px">
     <li><a ng-click="selectPage(1)">First</a>
     </li><li><a ng-click="selectPage(currentPage - 1)">&lt;</a>
     </li><li><a><page-select></page-select> of {{numPages}}</a>

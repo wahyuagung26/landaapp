@@ -6,20 +6,20 @@
             <div class="table-ds">
                 <div class="table-cell-ds">
                     <center>
-                        <img src="http://www.landa.co.id/img/logo.png"/>
+                        <img src="img/logo_landa.png"/>
                     </center>
                     <h2 class="str-21 outer-spaced-top-30">
                         Selamat datang
                     </h2>
                     <form id="login-form" name="landaform">
-                        <div class="text-danger wrapper text-center" ng-show="authError">
+                        <div class="alert alert-danger wrapper text-center" ng-show="authError">
                             <span ng-bind-html="authError"></span>
                         </div>
                         <label class="smb-16">
                             Username
                         </label>
                         <fieldset class="form-group">
-                            <input class="form-control" ng-model="form.username" placeholder="" tabindex="1" type="text" value="">
+                            <input class="form-control" ng-model="form.username" placeholder="" tabindex="1" type="text" value="" autofocus="">
                             </input>
                         </fieldset>
                         <label class="smb-16">
