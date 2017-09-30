@@ -7,40 +7,34 @@
                         <h2 class="text-left float-left">
                             Master Pengguna
                         </h2>
-                        
                     </div>
                     <div class="panel-body">
-                        <div >
-                       
-                        </div>
-                        <!-- End -->
                         <div class="x-header">
-                        
-                         <div class="row">
-<form class="form-horizontal form-validation" name="landaform">
-
-                                         <div class="col-sm-12 " >
-                                                    <input class="x-form w10 " st-search="nama"  placeholder="Nama User" type="text">
-                                                    </input>
-                                                   <input class="x-form w10" st-search="nama"  placeholder="Username" type="text">
-                                                    </input>
-                                                    <select class="x-form w13" st-search=""  placeholder="Status">
-                                                        <option>Aktif</option>
-                                                        <option>Terhapus</option>
-                                                    </select>
-                                                    <button class="btn btn-primary pull-right" style="" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view">
-                                <i class="glyphicon glyphicon-plus">
-                                </i>
-                                Buat Baru
-                            </button>
-                                                </div>
-                                        </form>
-                                         
-                                        </div>
-                                        
-                                    
+                            <div class="row">
+                                <form class="form-horizontal form-validation" name="landaform">
+                                    <div class="col-sm-12 ">
+                                        <input class="x-form w10 " placeholder="Nama User" st-search="nama" type="text">
+                                        </input>
+                                        <input class="x-form w10" placeholder="Username" st-search="nama" type="text">
+                                        </input>
+                                        <select class="x-form w13" placeholder="Status" st-search="">
+                                            <option>
+                                                Aktif
+                                            </option>
+                                            <option>
+                                                Terhapus
+                                            </option>
+                                        </select>
+                                        <button class="btn btn-primary pull-right" ng-click="create()" ng-hide="is_view" style="">
+                                            <i class="glyphicon glyphicon-plus">
+                                            </i>
+                                            Buat Pengguna Baru
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <table class="table table-striped table-hover tableBodyScroll">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th style="text-align: left; width: 3%">
@@ -61,7 +55,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-dblclick="view(row)" ng-repeat="row in displayed">
-                                    <td style="text-align: left; width: 3%" >
+                                    <td style="text-align: left; width: 3%">
                                         {{$index + 1}}
                                     </td>
                                     <td style="text-align: left;">
@@ -75,52 +69,42 @@
                                     </td>
                                     <td>
                                         <div class="btn-group pull-right" role="group">
-                                            <button class="btn btn-primary " style="" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view" ng-click="update(row)" ng-if="row.is_deleted == 0" title="Edit">
+                                            <button class="btn btn-primary btn-table" ng-click="update(row)" ng-if="row.is_deleted == 0" style="" title="Edit">
                                                 <i class="glyphicon glyphicon-pencil">
                                                 </i>
-                                            
                                             </button>
-                                            <button class="btn btn-danger " ng-click="trash(row);" ng-if="row.is_deleted == 0" title="Delete">
+                                            <button class="btn btn-danger btn-table" ng-click="trash(row);" ng-if="row.is_deleted == 0" title="Delete">
                                                 <i class="glyphicon glyphicon-trash">
                                                 </i>
-                                            
                                             </button>
-                                            <button class="btn btn-warning " ng-click="restore(row);" ng-if="row.is_deleted == 1" title="Restore">
+                                            <button class="btn btn-warning btn-table" ng-click="restore(row);" ng-if="row.is_deleted == 1" title="Restore">
                                                 <i class="glyphicon glyphicon-refresh">
                                                 </i>
-                                                
                                             </button>
-                                            <button class="btn btn-danger" ng-click="delete(row);" ng-if="row.is_deleted == 1" title="Delete">
+                                            <button class="btn btn-danger btn-table" ng-click="delete(row);" ng-if="row.is_deleted == 1" title="Delete">
                                                 <i class="glyphicon glyphicon-minus-sign">
                                                 </i>
-                                                 
                                             </button>
                                         </div>
-                                  
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                         <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
+                        <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
+                        </div>
                     </div>
-                        
-                    </div>
-                   
                 </div>
             </div>
-
         </div>
         <div class="row" ng-show="is_edit">
             <div class="col-md-12">
                 <div class="panel panel-blank">
                     <div class="panel-heading">
                         <h2 class="text-left float-left">
-                            Master Pengguna| {{formtitle}}
+                            Master Pengguna | {{formtitle}}
                         </h2>
-                        
                     </div>
                     <div class="panel-body">
-                        <div class="table-responsive scroll"> 
                         <form class="form-horizontal form-validation " name="landaform" novalidate="">
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
@@ -132,7 +116,6 @@
                                         </input>
                                     </div>
                                 </div>
-                                
                                 <div class="form-group form-group-sm">
                                     <label class="col-sm-4 text-form required">
                                         Hak Akses
@@ -149,8 +132,6 @@
                                     </div>
                                 </div>
                             </div>
-                               
-                        
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="col-sm-4 text-form required">
@@ -175,23 +156,24 @@
                                 </div>
                             </div>
                         </form>
-                        </div>
                     </div>
-                   <div class="x-footer">
-                       
-
-                            <button class="btn btn-default" ng-click="cancel()">
-                                <i class="glyphicon glyphicon-arrow-left">
-                                </i>
-                                Batal
-                            </button>
-
-                            <button autosave="" class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
-                                <i class="glyphicon glyphicon-floppy-save">
-                                </i>
-                                Simpan
-                            </button>
-
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="float-right">
+                                    <button class="btn btn-default" ng-click="cancel()">
+                                        <i class="glyphicon glyphicon-arrow-left">
+                                        </i>
+                                        Batal
+                                    </button>
+                                    <button autosave="" class="btn btn-primary" ng-click="save(form)" ng-hide="is_view">
+                                        <i class="glyphicon glyphicon-floppy-save">
+                                        </i>
+                                        Simpan
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

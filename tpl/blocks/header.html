@@ -6,25 +6,40 @@
     </div>
     <div class="top-header">
         <div class="float-left" style="height: 69px;">
-            <h1 class="left-150" id="title-aplikasi">
-                LANDA CORE
+            <h1 class="left-150">
+                <label id="title-aplikasi">
+                    LANDA CORE
+                </label>
             </h1>
         </div>
-        <div class="float-right menu-atas" style="padding-top: 20px; margin-right: 45px " >
-            <ul class="nav navbar-nav  navbar-right">
-             <li class="white"><a  class="white" href="">Pengaturan</a></li>
-
-            <li class="dropdown" >
-                <a  class="dropdown-toggle white" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                     {{user.nama}} <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" style="min-width:200px;">
-                    <li><a  ui-sref="master.userprofile" >Edit Profile</a></li>
-                    <li><a ng-click="logout()"><i class="glyphicon glyphicon-off "></i>Logout</a></li>
-                </ul>
-            </li>
-
-
+        <div class="float-right menu-atas" style="padding-top: 20px; margin-right: 45px ">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="white">
+                    <a class="white" href="">
+                        Pengaturan
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle white" data-toggle="dropdown" role="button">
+                        {{user.nama}}
+                        <span class="caret">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" style="min-width:200px;">
+                        <li>
+                            <a ui-sref="master.userprofile">
+                                Edit Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-click="logout()">
+                                <i class="glyphicon glyphicon-off ">
+                                </i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -43,13 +58,12 @@
             </button>
         </div>
         <div class="navbar-collapse collapse " id="navbar">
-            <ul class="nav navbar-nav  left-125">
+            <ul class="nav navbar-nav left-125">
                 <li>
-                    <a ui-sref="site.dashboard" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button">
+                    <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button" ui-sref="site.dashboard">
                         <i class="glyphicon glyphicon-home icon text-info-lter">
                         </i>
                         Dashboard
-                        </span>
                     </a>
                 </li>
                 <li class="dropdown">
@@ -128,10 +142,9 @@
                     </ul>
                 </li>
             </ul>
-
-             <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-right">
                 <li class="dropdown ">
-                    <a style="color: #0F00F8" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button">
+                    <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button" style="color: #0F00F8">
                         <i class="glyphicon glyphicon-plus icon text-info-lter">
                         </i>
                         Tambah Baru
@@ -154,7 +167,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> 
+                </li>
             </ul>
         </div>
     </div>

@@ -20,7 +20,13 @@ require 'vendor/autoload.php';
 
 /** load .env file */
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+
+$subDomain = explode('.', 'en.example.com');
+if (isset($subDomain[0]) && $subDomain[0] == 'tes') {
+    $dotenv->load();
+} else {
+    $dotenv->load('tes.env');
+}
 
 /* --- System --- */
 require 'systems/database.php';

@@ -7,32 +7,25 @@
                         <h2 class="text-left float-left">
                             Master Hak Akses
                         </h2>
-                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
-                            <button class="btn btn-primary" ng-click="create()" ng-disabled="landaform.$invalid" ng-hide="is_view">
-                                <i class="glyphicon glyphicon-plus">
-                                </i>
-                                Buat Hak Akses
-                            </button>
-                        </div>
                     </div>
                     <div class="panel-body">
-                        <!-- Form pencarian -->
-                        <!-- <div>
-                            <form class="form-horizontal form-validation" name="landaform">
-                                <div class="well form-cari">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="float-right">
-                                                <input class="x-form" placeholder="Nama Hak Akses" st-search="nama" type="text"/>
-                                            </div>
-                                        </div>
+                        <div class="x-header">
+                            <div class="row">
+                                <form class="form-horizontal form-validation" name="landaform">
+                                    <div class="col-sm-12 ">
+                                        <input class="x-form w10 " placeholder="Nama Hak Akses" st-search="nama" type="text">
+                                        </input>
+                                        <button class="btn btn-primary pull-right" ng-click="create()" ng-hide="is_view" style="">
+                                            <i class="glyphicon glyphicon-plus">
+                                            </i>
+                                            Buat Hak Akses Baru
+                                        </button>
                                     </div>
-                                </div>
-                            </form>
-                        </div> -->
-                        <!-- End -->
+                                </form>
+                            </div>
+                        </div>
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover tableBodyScroll">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th style="text-align: left;">
@@ -49,26 +42,22 @@
                                         </td>
                                         <td>
                                             <div class="btn-group pull-right" role="group">
-                                                <a class="link-edit" ng-click="update(row)" ng-if="row.is_deleted == 0" title="Edit">
+                                                <button class="btn btn-primary btn-table" ng-click="update(row)" ng-if="row.is_deleted == 0" style="" title="Edit">
                                                     <i class="glyphicon glyphicon-pencil">
                                                     </i>
-                                                    Edit
-                                                </a>
-                                                <a class="link-delete" ng-click="trash(row)" ng-if="row.is_deleted == 0" title="Delete">
+                                                </button>
+                                                <button class="btn btn-danger btn-table" ng-click="trash(row);" ng-if="row.is_deleted == 0" title="Delete">
                                                     <i class="glyphicon glyphicon-trash">
                                                     </i>
-                                                    Hapus
-                                                </a>
-                                                <a class="link-edit" ng-click="restore(row)" ng-if="row.is_deleted == 1" title="Restore">
+                                                </button>
+                                                <button class="btn btn-warning btn-table" ng-click="restore(row);" ng-if="row.is_deleted == 1" title="Restore">
                                                     <i class="glyphicon glyphicon-refresh">
                                                     </i>
-                                                    Restore
-                                                </a>
-                                                <a class="link-delete" ng-click="delete(row)" ng-if="row.is_deleted == 1" title="Delete">
+                                                </button>
+                                                <button class="btn btn-danger btn-table" ng-click="delete(row);" ng-if="row.is_deleted == 1" title="Delete">
                                                     <i class="glyphicon glyphicon-minus-sign">
                                                     </i>
-                                                    Hapus Permanen
-                                                </a>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -79,8 +68,8 @@
                         </div>
                     </div>
                     <div class="panel-heading ">
-                         <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
-                            </div>
+                        <div class="table-pagination" st-items-by-page="10" st-pagination="" st-template="tpl/blocks/pagination.custom.html">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,99 +81,103 @@
                         <h2 class="text-left float-left">
                             Master Hak Akses | {{formtitle}}
                         </h2>
-                        <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
-                            <button class="btn btn-default" ng-click="cancel()">
-                                <i class="glyphicon glyphicon-arrow-left">
-                                </i>
-                                Kembali
-                            </button>
-                            <button class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
-                                <i class="glyphicon glyphicon-save">
-                                </i>
-                                Simpan
-                            </button>
-                        </div>
                     </div>
                     <div class="panel-body">
-                        <div class="formScroll">
-                            <form class="form-horizontal form-validation" name="landaform">
-                                <div class="well">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label text-left text-form required">
-                                            Nama Grup
-                                        </label>
-                                        <div class="col-sm-4">
-                                            <input class="x-form w100" ng-disabled="is_view" ng-model="form.nama" type="text">
-                                            </input>
-                                        </div>
+                        <form class="form-horizontal form-validation" name="landaform">
+                            <div class="well" style="margin-bottom: 25px;">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label text-left text-form required">
+                                        Nama Grup
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input class="x-form w100" ng-disabled="is_view" ng-model="form.nama" type="text">
+                                        </input>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        <div class="panel panels panel-primary">
-                                            <div class="panel-heading">
-                                                <label class="i-checks">
-                                                    <input ng-click="checkAll('master', selectMaster)" ng-disabled="is_view" ng-model="selectMaster" type="checkbox">
-                                                        <i>
-                                                        </i>
-                                                        Data Master
-                                                    </input>
-                                                </label>
-                                            </div>
-                                            <div class="list-group bg-white">
-                                                <div class="list-group-item">
-                                                    <label class="i-checks">
-                                                        <input ng-disabled="is_view" ng-model="form.akses.master_akses" type="checkbox">
-                                                            <i>
-                                                            </i>
-                                                            Hak Akses
-                                                        </input>
-                                                    </label>
-                                                </div>
-                                                <div class="list-group-item">
-                                                    <label class="i-checks">
-                                                        <input ng-disabled="is_view" ng-model="form.akses.master_user" type="checkbox">
-                                                            <i>
-                                                            </i>
-                                                            User
-                                                        </input>
-                                                    </label>
-                                                </div>
-                                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panels panel-primary">
+                                        <div class="panel-heading">
+                                            <label class="i-checks">
+                                                <input ng-click="checkAll('master', selectMaster)" ng-disabled="is_view" ng-model="selectMaster" type="checkbox">
+                                                    <i>
+                                                    </i>
+                                                    Data Master
+                                                </input>
+                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="panel panels panel-primary">
-                                            <div class="panel-heading">
+                                        <div class="list-group bg-white">
+                                            <div class="list-group-item">
                                                 <label class="i-checks">
-                                                    <input ng-click="checkAll('transaksi', selectTransaksi)" ng-disabled="is_view" ng-model="selectTransaksi" type="checkbox">
+                                                    <input ng-disabled="is_view" ng-model="form.akses.master_akses" type="checkbox">
                                                         <i>
                                                         </i>
-                                                        Transaksi
+                                                        Hak Akses
                                                     </input>
                                                 </label>
                                             </div>
-                                            <div class="list-group bg-white">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="panel panels panel-primary">
-                                            <div class="panel-heading">
+                                            <div class="list-group-item">
                                                 <label class="i-checks">
-                                                    <input ng-click="checkAll('laporan', selectRekap)" ng-disabled="is_view" ng-model="selectRekap" type="checkbox">
+                                                    <input ng-disabled="is_view" ng-model="form.akses.master_user" type="checkbox">
                                                         <i>
                                                         </i>
-                                                        Laporan
+                                                        User
                                                     </input>
                                                 </label>
-                                            </div>
-                                            <div class="list-group bg-white">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="col-md-4">
+                                    <div class="panel panels panel-primary">
+                                        <div class="panel-heading">
+                                            <label class="i-checks">
+                                                <input ng-click="checkAll('transaksi', selectTransaksi)" ng-disabled="is_view" ng-model="selectTransaksi" type="checkbox">
+                                                    <i>
+                                                    </i>
+                                                    Transaksi
+                                                </input>
+                                            </label>
+                                        </div>
+                                        <div class="list-group bg-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panels panel-primary">
+                                        <div class="panel-heading">
+                                            <label class="i-checks">
+                                                <input ng-click="checkAll('laporan', selectRekap)" ng-disabled="is_view" ng-model="selectRekap" type="checkbox">
+                                                    <i>
+                                                    </i>
+                                                    Laporan
+                                                </input>
+                                            </label>
+                                        </div>
+                                        <div class="list-group bg-white">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-group pull-right" role="group" style="margin-top: 5px;">
+                                    <button class="btn btn-default" ng-click="cancel()">
+                                        <i class="glyphicon glyphicon-arrow-left">
+                                        </i>
+                                        Kembali
+                                    </button>
+                                    <button class="btn btn-primary" ng-click="save(form)" ng-disabled="landaform.$invalid" ng-hide="is_view">
+                                        <i class="glyphicon glyphicon-save">
+                                        </i>
+                                        Simpan
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

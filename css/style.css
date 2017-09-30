@@ -11,7 +11,7 @@ body {
     font-size: 13px;
     color: #1f1f1f;
     /*font-family: Source Sans Pro, sans-serif;*/
-  font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     background-color: #e8ebf1;
     -webkit-font-smoothing: antialiased;
     line-height: 1.42857143;
@@ -36,38 +36,39 @@ a {
     margin-top: 5px;
 }
 
+.panel-heading {
+    padding: 5px;
+    border-radius: 0;
+}
+
+.panel {
+    border-radius: 0;
+}
+
 
 /** End Body */
 
 
 /** Table */
 
-.tableBodyScroll tbody {
-    display: block;
-    max-height: 42vh;
-    overflow-y: scroll;
-}
-
-.tableBodyScroll thead, tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
-
 .pagination>li>a {
     font-weight: bolder;
 }
 
 th {
-    font-size: 12.3px;
+    background-color: #f1f1f1;
+    padding: 5px!important;
+    font-size: 12.4px;
     font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
 }
 
 td {
-    font-size: 12.3px;
+    font-size: 12.4px;
     font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     padding-top: 2px;
     padding-bottom: 2px;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
 }
 
 .link-edit {
@@ -138,7 +139,7 @@ td {
 
 .navbar-default .navbar-nav>li>a {
     color: #000;
-    font-family: "ProximaNova", helvetica,arial,verdana,sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     font-weight: 500;
     letter-spacing: .3px;
     font-size: 12px;
@@ -146,7 +147,7 @@ td {
 
 .navbar-default .navbar-nav>li.menu-right>a {
     color: #552DFF;
-    font-family: "ProximaNova", helvetica,arial,verdana,sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     font-weight: 500;
     letter-spacing: .3px;
     font-size: 12px;
@@ -154,42 +155,38 @@ td {
 
 .navbar-default .navbar-nav>li>a.white {
     color: #FFFFFF;
-    font-family: "ProximaNova", helvetica,arial,verdana,sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     font-weight: 500;
     letter-spacing: .3px;
     font-size: 12px;
 }
-
 
 .navbar-default .navbar-nav>li.menu-right>a:hover {
     color: #667DFF;
     background-color: #3352FF;
 }
 
-.navbar-default .navbar-nav>li.menu-right>a:focus  {
+.navbar-default .navbar-nav>li.menu-right>a:focus {
     color: #17008E;
     background-color: #005BFF;
 }
-
 
 .navbar-default .navbar-nav>li>a:hover {
     color: #555;
     background-color: #CBD3FF;
 }
 
-.navbar-default .navbar-nav>li>a:focus  {
+.navbar-default .navbar-nav>li>a:focus {
     color: #555;
     background-color: #236ef5;
 }
-
-
 
 .navbar-default .navbar-nav>li>a.white:hover {
     color: #FFFFFF;
     background-color: #18B0FB;
 }
 
-.navbar-default .navbar-nav>li>a.white:focus  {
+.navbar-default .navbar-nav>li>a.white:focus {
     color: #FFFFFF;
     background-color: #4286FF;
 }
@@ -245,7 +242,7 @@ td {
     /*font-family: "courier";*/
     font-family: 'Work Sans', sans-serif;
     font-weight: bolder;
-    margin-top: 22px;
+    /*margin-top: 22px;*/
     margin-bottom: 22px;
 }
 
@@ -283,7 +280,7 @@ td {
 .dropdown-menu>li>a {
     padding: 5px 15px;
     color: #000!important;
-   font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     letter-spacing: 1px;
     font-size: 10px;
 }
@@ -291,13 +288,10 @@ td {
 .menu-atas .dropdown-menu>li>a {
     padding: 5px 15px;
     color: #FFFFFF!important;
-   font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
+    font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
     letter-spacing: 1px;
     font-size: 10px;
 }
-
-
-
 
 .dropdown-menu>li>a>i {
     font-size: 10px;
@@ -324,6 +318,8 @@ td {
     background: none;
     display: table;
     width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .panel-heading h2 {
@@ -446,7 +442,7 @@ label {
     height: 24px;
     line-height: 15px;
     font-family: 'Work Sans', sans-serif;
-    font-size: 12.3px !important;
+    font-size: 12.4px !important;
 }
 
 .text-form {
@@ -460,7 +456,8 @@ label {
     padding: 5px;
     margin-bottom: 0px;
 }
-.required{
+
+.required {
     font-weight: bold;
 }
 
@@ -484,6 +481,8 @@ label {
 }
 
 .btn {
+    margin: 0px;
+    border-radius: 0;
     cursor: pointer;
     display: inline-block;
     min-height: 1em;
@@ -492,9 +491,14 @@ label {
     vertical-align: baseline;
     color: rgba(0, 0, 0, .6);
     font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
-    font-size: 10px;
+    font-size: 11px;
     padding: .4em 1em .4em;
+    font-weight: 500;
     text-decoration: none;
+}
+
+.btn-table {
+    font-size: 10px;
 }
 
 .btn-kecil {
@@ -574,7 +578,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 .i-checks {
-    font-size: 12.3px !important;
+    font-size: 12.4px !important;
     padding-left: 20px;
     cursor: pointer;
     font-family: 'Work Sans', sans-serif;
@@ -593,8 +597,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .i-checks>i {
     position: relative;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     margin-top: -2px;
     margin-right: 4px;
     margin-left: -20px;
@@ -607,8 +611,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .i-checks input:checked+i:before {
     top: 4px;
     left: 4px;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: #23b7e5;
 }
 
@@ -930,18 +934,15 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .btn-login {
     font-size: 14px;
 }
-a .white{
-   
+
+a .white {
     color: #FFFFFF;
 }
 
 .navbar-default .navbar-nav .menu1>.open>a {
     color: #555;
     background-color: #E7E7E7;
-
 }
-
-
 
 .form-group-sm .control-label-f12 {
     font-size: 10px !important;
@@ -960,27 +961,33 @@ button {
     margin: 5px;
 }
 
+
 /**End Login Page*/
 
 .menu-atas ul.dropdown-menu {
     background-color: #3e83ff;
     padding: 1px 0px;
 }
-.menu-atas ul.dropdown-menu li{
+
+.menu-atas ul.dropdown-menu li {
     margin: 0px;
     padding: 0px;
     height: 37px;
 }
-.menu-atas ul.dropdown-menu li a{
+
+.menu-atas ul.dropdown-menu li a {
     color: #E70000;
     height: 35px;
     padding-top: 7px;
-    font-size: 10px;
+    font-size: 11px;
+    font-weight: 500;
 }
 
-.menu-atas ul.dropdown-menu > li:hover > a {
-    background-color: #4E8DFD!important; /*#f5f5f5*/
-    color: #FFFFFF;/*#262626;*/
+.menu-atas ul.dropdown-menu>li:hover>a {
+    background-color: #4E8DFD!important;
+    /*#f5f5f5*/
+    color: #FFFFFF;
+    /*#262626;*/
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -993,15 +1000,17 @@ button {
     background-color: #16B0B7;
 }
 */
-.x-header{
-        background-color: #F9F9F9 !important;
+
+.x-header {
+    background-color: #F9F9F9 !important;
     border-bottom: 1px solid #AFB5BD !important;
     border-top: 1px solid #AFB5BD !important;
-        font-size: 13px;
-    border-style: solid;
-    padding: 6px 0 6px 8px;
+    font-size: 13px;
+    /*border-style: solid;*/
+    padding: 6px;
 }
-.x-footer{
+
+.x-footer {
     background-color: #F1F1F1;
     border-top: 1px solid #AFB5BD !important;
     border-bottom: 1px solid #AFB5BD !important;
@@ -1012,10 +1021,11 @@ button {
     text-align: right;
 }
 
-select .x-form{
+select .x-form {
     padding: 0px;
 }
-.scroll-dhas{
+
+.scroll-dhas {
     max-height: 500px;
     min-height: 500px;
 }
