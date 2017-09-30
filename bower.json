@@ -1,25 +1,31 @@
 {
-  "name": "Landa App",
+  "name": "core",
   "homepage": "https://github.com/cahkampung052/landaapp",
   "authors": [
-    "Wahyu Agung Tribawono <wahyuagung26@gmail.com>"
+    "Aan <muhmmd.aan@gmail.com>"
   ],
   "description": "",
   "main": "",
   "license": "MIT",
   "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "angular-messages": "^1.4.8",
-    "angular-aria": "^1.4.8",
-    "angular-smart-table": "^2.1.8",
+    "angular-animate": ">1.2.8",
     "angular-material": "^1.1.5",
-    "angular-bootstrap": "^2.5.0",
+    "angular-smart-table": "^2.1.8",
     "angular-sanitize": "^1.6.6",
-    "AngularJS-Toaster": "angularjs-toaster#^2.2.0",
-    "jquery": "^3.2.1",
-    "oclazyload": "^1.1.0",
     "angular-ui-router": "^1.0.6",
+    "angular-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
-    "chart.js": "^2.7.0"
+    "AngularJS-Toaster": "angularjs-toaster#^2.2.0",
+    "angular-chart.js": "^1.1.1",
+    "oclazyload": "^1.1.0"
   }
 }
