@@ -21,7 +21,7 @@ require 'vendor/autoload.php';
 /** load .env file */
 $dotenv = new Dotenv\Dotenv(__DIR__);
 
-$subDomain = explode('.', 'en.example.com');
+$subDomain = explode('.', $_SERVER['HTTP_HOST']);
 if (isset($subDomain[0]) && $subDomain[0] == 'tes') {
     $dotenv->load();
 } else {
