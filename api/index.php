@@ -36,16 +36,14 @@ require 'systems/functions.php';
 $display = (getenv('DISPLAY_ERRORS') == 'true') ? true : false;
 
 $config = [
-    'displayErrorDetails' => $display,
+    'displayErrorDetails'               => $display,
+    'determineRouteBeforeAppMiddleware' => true,
 ];
 
 $app = new \Slim\App(["settings" => $config]);
 
 require 'systems/dependencies.php';
-
-$app->add(function (ServerRequestInterface $request, ResponseInterface $response, callable $next) {
-    return $next($request, $response);
-});
+require 'systems/middleware.php';
 
 /** route to php file */
 $file = getUrlFile();

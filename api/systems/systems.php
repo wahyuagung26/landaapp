@@ -86,7 +86,7 @@ function unprocessResponse($response, $message)
 function unauthorizedResponse($response, $message)
 {
     return $response->withJson([
-        'status_code' => 401,
+        'status_code' => 403,
         'errors'      => $message,
-    ], 401);
+    ], 403);
 }

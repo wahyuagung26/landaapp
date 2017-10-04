@@ -8,7 +8,7 @@ $app->get('/site/session', function ($request, $response) {
         return successResponse($response, $_SESSION);
     }
     return unprocessResponse($response, ['undefined']);
-});
+})->setName('session');
 
 $app->post('/site/login', function ($request, $response) {
     $params = $request->getParams();
@@ -34,7 +34,7 @@ $app->post('/site/login', function ($request, $response) {
         return successResponse($response, $_SESSION);
     }
     return unprocessResponse($response, ['Authentication Systems gagal, username atau password Anda salah.']);
-});
+})->setName('session');
 
 $app->get('/site/logout', function () {
     session_destroy();

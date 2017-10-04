@@ -24,33 +24,6 @@ angular.module('app').run(
             });
         }
     ]);
-angular.module('app').config(function($httpProvider) {
-    $httpProvider.interceptors.push(function($q, $rootScope) {
-        var numberOfHttpRequests = 0;
-        return {
-            request: function(config) {
-                numberOfHttpRequests += 1;
-                $rootScope.waitingForHttp = true;
-                return config;
-            },
-            requestError: function(error) {
-                numberOfHttpRequests -= 1;
-                $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
-                return $q.reject(error);
-            },
-            response: function(response) {
-                numberOfHttpRequests -= 1;
-                $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
-                return response;
-            },
-            responseError: function(error) {
-                numberOfHttpRequests -= 1;
-                $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
-                return $q.reject(error);
-            }
-        };
-    });
-});
 angular.module('app').config(
     ['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
