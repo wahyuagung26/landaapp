@@ -60,5 +60,8 @@
         <script src="js/directives.js"></script>
         <script src="js/data.js"></script>
         <script src="js/httpInterceptor.js"></script>
+        <script type="text/javascript">
+            function sticky_relocate(){var o=$(window).scrollTop();o>25?($("#form-footer").addClass("form-btn"),$(".app-content").addClass("bottom-25")):($("#form-footer").removeClass("form-btn"),$(".app-content").addClass("bottom-25"))}$(document).ready(function(){$(window).scroll(sticky_relocate),sticky_relocate()});
+        </script>
     </body>
 </html>
