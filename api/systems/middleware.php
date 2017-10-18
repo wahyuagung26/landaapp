@@ -3,8 +3,12 @@ $app->add(function ($request, $response, $next) {
     /**
      * Get route name
      */
-    $route     = $request->getAttribute('route');
-    $routeName = $route->getName();
+    $route = $request->getAttribute('route');
+
+    $routeName = '';
+    if ($route !== null) {
+        $routeName = $route->getName();
+    }
     /**
      * Set Global route
      */
@@ -16,7 +20,7 @@ $app->add(function ($request, $response, $next) {
     /**
      * Check session
      */
-    if (!isset($_SESSION['user']['id']) && !in_array($routeName, $publicRoutesArray)) {
+    if ((!isset($_SESSION['user']['id']) || !isset($_SESSION['user']['m_roles_id']) || !isset($_SESSION['user']['akses'])) && !in_array($routeName, $publicRoutesArray)) {
         return unauthorizedResponse($response, ['Mohon maaf, anda tidak mempunyai akses']);
     }
     /**
