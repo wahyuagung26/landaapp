@@ -697,6 +697,17 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     padding: 0px!important;
 }
 
+.uib-day .btn.active, .uib-day .btn:active {
+    color: #fff !important;
+    background-color: #cacbcd !important;
+    border-color: #adadad;
+}
+
+.uib-day button, .uib-month button, .uib-year button {
+    min-width: 100%;
+    background-color: #f1f1f1;
+}
+
 .i-checks {
     font-size: 12.4px !important;
     padding-left: 20px;
