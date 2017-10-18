@@ -38,4 +38,4 @@ $app->post('/site/login', function ($request, $response) {
 
 $app->get('/site/logout', function () {
     session_destroy();
-});
+})->setName('logout');

@@ -11,6 +11,7 @@ $app->add(function ($request, $response, $next) {
     $publicRoutesArray = array(
         'login',
         'session',
+        'logout',
     );
     /**
      * Check session
