@@ -13,22 +13,23 @@
                     </h2>
                     <form id="login-form" name="landaform">
                         <div class="alert alert-danger wrapper text-center" ng-show="authError">
-                            <span ng-bind-html="authError"></span>
+                            <span ng-bind-html="authError">
+                            </span>
                         </div>
                         <label class="smb-16">
                             Username
                         </label>
-                        <fieldset class="form-group">
-                            <input class="form-control" ng-model="form.username" placeholder="" tabindex="1" type="text" value="" autofocus="">
+                        <div class="form-group">
+                            <input autofocus="" class="form-control" ng-model="form.username" placeholder="" tabindex="1" type="text" value="">
                             </input>
-                        </fieldset>
+                        </div>
                         <label class="smb-16">
                             Password
                         </label>
-                        <fieldset class="form-group">
+                        <div class="form-group">
                             <input class="form-control" ng-model="form.password" placeholder="" tabindex="2" type="password">
                             </input>
-                        </fieldset>
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block btn-login" ng-click="login(form)">
                                 Login
