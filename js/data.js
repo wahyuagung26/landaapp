@@ -1,4 +1,4 @@
-app.factory("Data", ['$http', '$location',
+angular.module('app').factory("Data", ['$http', '$location',
     function($http, $q, $location) {
         var serviceBase = 'api/';
         var obj = {};
@@ -45,3 +45,4 @@ app.factory("Data", ['$http', '$location',
         return obj;
     }
 ]);
+  

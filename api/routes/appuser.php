@@ -32,7 +32,7 @@ $app->get('/appuser/view', function ($request, $response) {
  * get user list
  */
 $app->get('/appuser/index', function ($request, $response) {
-    $params = $_REQUEST;
+    $params = $request->getParams();
 
     $sort   = "id DESC";
     $offset = isset($params['offset']) ? $params['offset'] : 0;
@@ -52,22 +52,24 @@ $app->get('/appuser/index', function ($request, $response) {
                 $db->where('m_user.nama', 'LIKE', $val);
             } else if ($key == 'is_deleted') {
                 $db->where('m_user.is_deleted', '=', $val);
+            } else {
+                $db->where($key, 'LIKE', $val);
             }
         }
     }
 
     /** Set limit */
-    if (!empty($limit)) {
+    if (isset($params['limit']) && !empty($params['limit'])) {
         $db->limit($limit);
     }
 
     /** Set offset */
-    if (!empty($offset)) {
+    if (isset($params['offset']) && !empty($params['offset'])) {
         $db->offset($offset);
     }
 
     /** Set sorting */
-    if (!empty($params['sort'])) {
+    if (isset($params['sort']) && !empty($params['sort'])) {
         $db->sort($sort);
     }
 
@@ -75,7 +77,7 @@ $app->get('/appuser/index', function ($request, $response) {
     $totalItem = $db->count();
 
     /** set m_roles_id to string */
-    foreach($models as $key => $val){
+    foreach ($models as $key => $val) {
         $val->m_roles_id = (string) $val->m_roles_id;
     }
 
@@ -87,11 +89,9 @@ $app->get('/appuser/index', function ($request, $response) {
  */
 $app->post('/appuser/create', function ($request, $response) {
     $data = $request->getParams();
-
-    $db = $this->db;
+    $db   = $this->db;
 
     $validasi = validasi($data, ['password' => 'required']);
-
     if ($validasi === true) {
         $data['password'] = sha1($data['password']);
         try {
@@ -120,7 +120,6 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
     }
 
     $validasi = validasi($data);
-
     if ($validasi === true) {
         try {
             $model = $db->update("m_user", $data, array('id' => $id));
@@ -137,8 +136,7 @@ $app->post('/appuser/updateprofil', function ($request, $response) {
  */
 $app->post('/appuser/update', function ($request, $response) {
     $data = $request->getParams();
-
-    $db = $this->db;
+    $db   = $this->db;
 
     if (!empty($params['password'])) {
         $data['password'] = sha1($data['password']);
@@ -147,7 +145,6 @@ $app->post('/appuser/update', function ($request, $response) {
     }
 
     $validasi = validasi($data);
-
     if ($validasi === true) {
         try {
             $model = $db->update("m_user", $data, array('id' => $data['id']));
@@ -164,7 +161,6 @@ $app->post('/appuser/update', function ($request, $response) {
  */
 $app->delete('/appuser/delete/{id}', function ($request, $response) {
     $db = $this->db;
-
     try {
         $delete = $db->delete('m_user', array('id' => $request->getAttribute('id')));
         return successResponse($response, ['data berhasil dihapus']);

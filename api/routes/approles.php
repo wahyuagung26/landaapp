@@ -41,17 +41,17 @@ $app->get('/approles/index', function ($request, $response) {
     }
 
     /** Set limit */
-    if (!empty($limit)) {
+    if (isset($params['limit']) && !empty($params['limit'])) {
         $db->limit($limit);
     }
 
     /** Set offset */
-    if (!empty($offset)) {
+    if (isset($params['offset']) && !empty($params['offset'])) {
         $db->offset($offset);
     }
 
     /** Set sorting */
-    if (!empty($params['sort'])) {
+    if (isset($params['sort']) && !empty($params['sort'])) {
         $db->sort($sort);
     }
 
@@ -73,7 +73,6 @@ $app->post('/approles/save', function ($request, $response) {
     $db   = $this->db;
 
     $validasi = validasi($data);
-
     if ($validasi === true) {
         try {
             $data['akses'] = json_encode($data['akses']);
@@ -95,7 +94,6 @@ $app->post('/approles/save', function ($request, $response) {
  */
 $app->delete('/approles/delete/{id}', function ($request, $response) {
     $db = $this->db;
-
     try {
         $delete = $db->delete('m_roles', array('id' => $request->getAttribute('id')));
         return successResponse($response, ['data berhasil dihapus']);

@@ -16,23 +16,23 @@
       var numberOfHttpRequests = 0;
       var interceptor = {
           'request': function(config) {
-              numberOfHttpRequests += 1;
-              $rootScope.waitingForHttp = true;
+              // numberOfHttpRequests += 1;
+              // $rootScope.waitingForHttp = true;
               return config;
           },
           'requestError': function(error) {
-              numberOfHttpRequests -= 1;
-              $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
+              // numberOfHttpRequests -= 1;
+              // $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
               return error;
           },
           'response': function(response) {
-              numberOfHttpRequests -= 1;
-              $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
+              // numberOfHttpRequests -= 1;
+              // $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
               return response;
           },
           'responseError': function(error) {
-              numberOfHttpRequests -= 1;
-              $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
+              // numberOfHttpRequests -= 1;
+              // $rootScope.waitingForHttp = (numberOfHttpRequests !== 0);
               if (error.status == 403) {
                   $injector.get('$uibModal').open({
                       templateUrl: 'tpl/modalLogin.html',
@@ -41,7 +41,7 @@
                       backdrop: 'static'
                   });
               }
-              return $q.reject(error);;
+              return $q.reject(error);
           }
       };
       return interceptor;

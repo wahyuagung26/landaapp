@@ -38,7 +38,9 @@ angular.module('app').config(
                     resolve: {
                         deps: ['$ocLazyLoad',
                             function($ocLazyLoad) {
-                                return $ocLazyLoad.load('tpl/site/dashboard.js');
+                                return $ocLazyLoad.load(['chart.js']).then(function() {
+                                    return $ocLazyLoad.load('tpl/site/dashboard.js');
+                                });
                             }
                         ]
                     }

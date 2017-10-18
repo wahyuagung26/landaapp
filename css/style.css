@@ -1,4 +1,32 @@
+/** Loading Bar */
+
+#loading-bar {
+    pointer-events: all;
+    z-index: 99999;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    cursor: wait;
+    position: fixed;
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+}
+
+
 /** Body */
+
+.label {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+html input[disabled] {
+    cursor: default;
+    background-color: #f1f1f1;
+}
 
 body {
     font-size: 13px;
@@ -10,6 +38,12 @@ body {
     line-height: 1.42857143;
 }
 
+a {
+    color: #363f44;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .form-btn {
     position: fixed;
     left: 0px;
@@ -17,12 +51,6 @@ body {
     width: 100%;
     background: #fff;
     z-index: 999;
-}
-
-a {
-    color: #363f44;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .app-content {
@@ -47,6 +75,69 @@ a {
     border-radius: 0;
 }
 
+.sweet-alert p {
+    font-size: 13px;
+}
+
+.sweet-alert button {
+    padding: 5px;
+    font-size: 12px;
+}
+
+h2.page-header {
+    padding-bottom: 15px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 25px;
+    margin-top: 30px;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+}
+
+.pr-0 {
+    padding-right: 0px;
+}
+
+.pl-3 {
+    padding-left: 3px;
+}
+
+.input-group-addon {
+    font-size: 12px;
+    padding: 2px 4px 2px 4px;
+    border-radius: 0;
+}
+
+fieldset {
+    padding: 10px;
+    margin: 5px 0px 0px;
+    border: 1px solid #b5b8c8;
+}
+
+legend {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    display: block;
+    width: auto;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: none;
+}
+
+.tab-content {
+    padding-top: 15px;
+}
+
+.nav-link {
+    padding: 8px;
+    font-size: 12px;
+}
+
 
 /** End Body */
 
@@ -58,6 +149,7 @@ a {
 }
 
 th {
+    font-weight: 500;
     background-color: #f1f1f1;
     padding: 5px!important;
     font-size: 12.4px;
@@ -142,7 +234,7 @@ td {
 .navbar-default .navbar-nav>li>a {
     color: #000;
     font-family: "ProximaNova", helvetica, arial, verdana, sans-serif !important;
-    font-weight: 500;
+    /*font-weight: 500;*/
     letter-spacing: .3px;
     font-size: 12px;
 }
@@ -230,7 +322,7 @@ td {
     background-color: #C8C8CD;
     border: 0.1px solid #EFEFEF;
     border-radius: 3px;
-    height: 110px;
+    /*height: 110px;*/
     position: absolute;
     margin: 10px 0 0 20px;
     padding: 2px;
@@ -377,12 +469,24 @@ td {
     margin-bottom: 20px !important;
 }
 
+.bottom-25 {
+    margin-bottom: 25px !important;
+}
+
 .left-125 {
     margin-left: 125px;
 }
 
 .left-150 {
     margin-left: 150px;
+}
+
+.top-5 {
+    margin-top: 5px !important;
+}
+
+.top-10 {
+    margin-top: 10px !important;
 }
 
 
@@ -401,6 +505,10 @@ td {
 
 .w60 {
     width: 60%;
+}
+
+.w50 {
+    width: 50%;
 }
 
 .w40 {
@@ -436,7 +544,7 @@ label {
 }
 
 .x-form {
-    padding: 4px 6px 3px 6px;
+    padding: 3px 6px 3px 6px;
     background: white repeat-x 0 0;
     border-width: 1px;
     border-style: solid;
@@ -445,6 +553,10 @@ label {
     line-height: 15px;
     font-family: 'Work Sans', sans-serif;
     font-size: 12.4px !important;
+}
+
+textarea.x-form {
+    height: auto;
 }
 
 .text-form {
@@ -460,7 +572,7 @@ label {
 }
 
 .required {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .required::after {
@@ -576,7 +688,13 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 .form-group-sm .form-control {
-    font-size: 14px !important;
+    font-size: 12px !important;
+    font-family: 'Work Sans', sans-serif;
+    height: 24px;
+}
+
+.uib-day {
+    padding: 0px!important;
 }
 
 .i-checks {
@@ -656,6 +774,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     text-align: center;
     width: 50px;
     height: 18px;
+    padding-top: 6px;
 }
 
 
@@ -664,10 +783,47 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 /** UI Select */
 
+.ui-select-multiple.ui-select-bootstrap {
+    height: auto!important;
+    padding: 3px 3px 0;
+}
+
 .ui-select-bootstrap>.ui-select-match>.btn {
     background-color: #fff;
     text-align: left!important;
     border: 1px solid #ccc;
+    height: 24px;
+    border-radius: 0;
+}
+
+.ui-select-search {
+    padding: 0px;
+    padding-left: 6px;
+    height: 24px;
+    border-radius: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12.3px !important;
+}
+
+.ui-select-match-text {
+    margin-top: -3px;
+    margin-left: -4px;
+    font-weight: normal;
+}
+
+.ui-select-match {
+    height: 24px;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active>span {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
+    font-size: 12.3px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0;
 }
 
 .btn-default-focus {
@@ -679,6 +835,9 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     outline-offset: none;
     box-shadow: none;
 }
+
+
+/** End  */
 
 
 /** End  */
@@ -981,7 +1140,7 @@ button {
     color: #E70000;
     height: 35px;
     padding-top: 7px;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
 }
 
