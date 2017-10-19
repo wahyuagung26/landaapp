@@ -1,0 +1,31 @@
+{
+  "name": "smart-table-sticky-header",
+  "version": "1.0.1",
+  "authors": [
+    "lorenzofox3 <laurent34azerty@gmail.com>"
+  ],
+  "description": "sticky table header for smart-table",
+  "main": "stStickyHeader.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lr-sticky-header": "~1.0.0"
+  },
+  "homepage": "https://github.com/lorenzofox3/stStickyHeader",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "345f6550ab830631c1ce24a8cddf804e28894983"
+  },
+  "_source": "https://github.com/lorenzofox3/stStickyHeader.git",
+  "_target": "^1.0.1",
+  "_originalSource": "st-sticky-header",
+  "_direct": true
+}

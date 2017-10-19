@@ -16,6 +16,26 @@
 }
 
 
+/** END */
+
+.sub-header {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #717171;
+}
+
+
+/** Table Fixed */
+
+.lr-sticky-header tr {
+    height: 50px;
+}
+
+.lr-sticky-header {
+    top: 105px!important;
+}
+
+
 /** Body */
 
 .label {
@@ -51,6 +71,7 @@ a {
     width: 100%;
     background: #fff;
     z-index: 999;
+    border-top: 1px solid #ddd;
 }
 
 .app-content {
@@ -437,8 +458,12 @@ td {
     font-weight: bold !important;
 }
 
+.text-center {
+    text-align: center !important;
+}
 
-/** End text align */
+
+/** End text style */
 
 
 /** Float */
@@ -487,6 +512,14 @@ td {
 
 .top-10 {
     margin-top: 10px !important;
+}
+
+.top-25 {
+    margin-top: 25px !important;
+}
+
+.top-40 {
+    margin-top: 40px !important;
 }
 
 
@@ -779,6 +812,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .table-pagination {
     text-align: center;
+    padding-top: 10px;
 }
 
 .table-pagination input {
