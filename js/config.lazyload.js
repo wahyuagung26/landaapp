@@ -3,8 +3,8 @@ angular.module('app').config(['$ocLazyLoadProvider', function($ocLazyLoadProvide
         debug: false,
         events: true,
         modules: [{
-            name: 'ngBootstrap',
-            files: ['js/library/bootstrap-daterangepicker/daterangepicker.js', 'js/library/ng-bs-daterangepicker/dist/ng-bs-daterangepicker.min.js', 'js/library/bootstrap-daterangepicker/daterangepicker-bs3.css']
+            name: 'daterangepicker',
+            files: ['js/library/bootstrap-daterangepicker/daterangepicker.js', 'js/library/angular-daterangepicker/js/angular-daterangepicker.min.js', 'js/library/bootstrap-daterangepicker/daterangepicker.css']
         }, {
             name: 'angularFileUpload',
             files: ['js/library/angular-file-upload/dist/angular-file-upload.min.js']
