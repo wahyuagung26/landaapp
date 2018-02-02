@@ -16,3 +16,8 @@ function validate($data, $validasi, $custom = [])
         return $validate;
     }
 }
+
+function getGlobalMenu()
+{
+    return explode(',', str_replace(" ", "", getenv('GLOBAL_ROUTES')));
+}

@@ -9,10 +9,6 @@ angular.module('app').config(['$ocLazyLoadProvider', function($ocLazyLoadProvide
             name: 'angularFileUpload',
             files: ['js/library/angular-file-upload/dist/angular-file-upload.min.js']
         }, 
-        // {
-        //     name: 'ngMaterial',
-        //     files: ['js/library/angular-material/angular-material.min.js', 'js/library/angular-material/angular-material.min.css']
-        // }, 
         {
             serie: true,
             name: 'chart.js',
@@ -27,4 +23,9 @@ angular.module('app').config(['$ocLazyLoadProvider', function($ocLazyLoadProvide
             files: ['js/library/angular-busy/dist/angular-busy.min.js', 'js/library/angular-busy/dist/angular-busy.min.css']
         }, ]
     });
+
 }]);
+
+// angular.module('app').config(function($httpProvider){
+//     $httpProvider.defaults.common['Authorization'] = 'asdasd';
+// });

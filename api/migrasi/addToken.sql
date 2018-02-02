@@ -1,0 +1,2 @@
+ALTER TABLE `m_user` ADD `token_key` VARCHAR(255) NULL AFTER `m_roles_id`, ADD `token_expires` INT NULL AFTER `token_key`;
+ALTER TABLE `m_user` CHANGE `token_key` `token_key` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;

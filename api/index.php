@@ -1,13 +1,13 @@
 <?php
 
 # Session lifetime of 20 hours
-ini_set('session.gc_maxlifetime', 20 * 60 * 60);
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-if (!file_exists(__DIR__ . '/sessions')) {
-    mkdir(__DIR__ . '/sessions', 0777, true);
-}
-session_save_path(__DIR__ . '/sessions');
+// ini_set('session.gc_maxlifetime', 20 * 60 * 60);
+// ini_set('session.gc_probability', 1);
+// ini_set('session.gc_divisor', 100);
+// if (!file_exists(__DIR__ . '/sessions')) {
+//     mkdir(__DIR__ . '/sessions', 0777, true);
+// }
+// session_save_path(__DIR__ . '/sessions');
 
 session_start();
 

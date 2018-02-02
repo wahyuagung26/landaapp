@@ -1,30 +1,49 @@
 <?php
-$app->add(function ($request, $response, $next) {
-    /**
-     * Get route name
-     */
-    $route = $request->getAttribute('route');
 
-    $routeName = '';
-    if ($route !== null) {
-        $routeName = $route->getName();
+$container        = $app->getContainer();
+$container["jwt"] = function ($container) {
+    return new StdClass;
+};
+$container["token"] = "";
+
+$app->add(new \Slim\Middleware\JwtAuthentication([
+    "path"     => "/",
+    "secret"   => getenv("S_KEY"),
+    "rules"    => [
+        new \Slim\Middleware\JwtAuthentication\RequestPathRule([
+            "path"        => "/",
+            "passthrough" => getGlobalMenu(),
+        ]),
+        new \Slim\Middleware\JwtAuthentication\RequestMethodRule([
+            "passthrough" => ["OPTIONS"],
+        ]),
+    ],
+    "callback" => function ($request, $response, $arguments) use ($container) {
+        $container["jwt"] = $arguments["decoded"];
+    },
+    "error"    => function ($request, $response, $arguments) {
+        $data["status"]  = "error";
+        $data["message"] = $arguments["message"];
+        return $response
+            ->withHeader("Content-Type", "application/json")
+            ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+    },
+]));
+
+$app->add(function ($request, $response, $next) {
+    $token = "";
+    if (isset($request->getHeader('Authorization')[0])) {
+        $token = str_replace("Bearer ", "", $request->getHeader('Authorization')[0]);
     }
-    /**
-     * Set Global route
-     */
-    $publicRoutesArray = array(
-        'login',
-        'session',
-        'logout',
-    );
-    /**
-     * Check session
-     */
-    if ((!isset($_SESSION['user']['id']) || !isset($_SESSION['user']['m_roles_id']) || !isset($_SESSION['user']['akses'])) && !in_array($routeName, $publicRoutesArray)) {
-        return unauthorizedResponse($response, ['Mohon maaf, anda tidak mempunyai akses']);
-    }
-    /**
-     * Return if isset session
-     */
+    $this["token"] = $token;
+
     return $next($request, $response);
+});
+
+$app->add(function ($req, $res, $next) {
+    $response = $next($req, $res);
+    return $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 });

@@ -6,5 +6,9 @@
         "name": "wahyu agung",
         "email": "agung@landa.co.id"
     }],
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require": {
+        "dyorg/slim-token-authentication": "^0.3.3",
+        "tuupola/slim-jwt-auth": "^2.3"
+    }
 }

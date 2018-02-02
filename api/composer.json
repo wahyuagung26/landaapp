@@ -13,7 +13,8 @@
         "cahkampung/landa-migrasi": "*",
         "cahkampung/landa-php": "*",
         "wixel/gump": "dev-master",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "tuupola/slim-jwt-auth": "^2.3.3"
     },
     "autoload": {
         "psr-4": {
