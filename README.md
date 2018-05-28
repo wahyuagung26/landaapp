@@ -8,8 +8,8 @@ Slim Framework 3 with Angular 1.6.5 For Web App
 * Jalankan perintah `cd FOLDER_NAME/api`
 * Jalankan perintah `composer install --no-dev`
 * Buat database baru
-* Setting koneksi dan base url untuk versi stable di `api/config/.env`
-* Setting koneksi dan base url untuk versi testing di `api/config/test.env`
+* Setting koneksi dan base url untuk versi stable di `api/config/config.php`
+* Setting koneksi dan base url untuk versi testing di `api/config/test.php`
 * Jalankan migrasi database dengan mengeksekusi file `api/migrasi.php` pada browser
 
 ## Library PHP yang digunakan ##
