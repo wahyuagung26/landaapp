@@ -1,7 +1,12 @@
 <?php
+function config($key){
+    include getConfig();
+    return isset($config[$key]) ? $config[$key] : '';
+}
+
 function site_url()
 {
-    return rtrim(getenv('SITE_URL'), '/') . '/';
+    return rtrim(config('SITE_URL'), '/') . '/';
 }
 
 function site_path()
@@ -9,7 +14,7 @@ function site_path()
     static $_path;
 
     if (!$_path) {
-        $_path = rtrim(parse_url(getenv('SITE_URL'), PHP_URL_PATH), '/');
+        $_path = rtrim(parse_url(config('SITE_URL'), PHP_URL_PATH), '/');
     }
 
     return $_path;
@@ -17,19 +22,19 @@ function site_path()
 
 function img_url()
 {
-    return rtrim(getenv('SITE_URL'), '/') . '/';
+    return rtrim(config('SITE_URL'), '/') . '/';
 }
 
 function img_path()
 {
-    return rtrim(getenv('IMG_PATH'), '/') . '/';
+    return rtrim(config('IMG_PATH'), '/') . '/';
 }
 
 function dispatch()
 {
     $path = $_SERVER['REQUEST_URI'];
 
-    if (getenv('SITE_URL') !== null) {
+    if (config('SITE_URL') !== null) {
         $path = preg_replace('@^' . preg_quote(site_path()) . '@', '', $path);
     }
 

@@ -20,12 +20,7 @@ function validasi($data, $custom = array())
  */
 $app->get('/approles/index', function ($request, $response) {
     $params = $request->getParams();
-
-    $sort   = "id DESC";
-    $offset = isset($params['offset']) ? $params['offset'] : 0;
-    $limit  = isset($params['limit']) ? $params['limit'] : 10;
-
-    $db = $this->db;
+    $db     = $this->db;
 
     /** Select roles from database */
     $db->select("*")
@@ -42,17 +37,17 @@ $app->get('/approles/index', function ($request, $response) {
 
     /** Set limit */
     if (isset($params['limit']) && !empty($params['limit'])) {
-        $db->limit($limit);
+        $db->limit($params['limit']);
     }
 
     /** Set offset */
     if (isset($params['offset']) && !empty($params['offset'])) {
-        $db->offset($offset);
+        $db->offset($params['offset']);
     }
 
     /** Set sorting */
     if (isset($params['sort']) && !empty($params['sort'])) {
-        $db->sort($sort);
+        $db->orderBy($params['sort']);
     }
 
     $models    = $db->findAll();

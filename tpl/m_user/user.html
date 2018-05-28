@@ -149,6 +149,9 @@
                                     <div class="col-sm-8">
                                         <input class="x-form w60" ng-disabled="is_view" ng-model="form.password" type="password">
                                         </input>
+                                        <br/>
+                                        <ul check-strength="form.password" id="strength" model="cek">
+                                        </ul>
                                         <p class="block-help" ng-if="!is_create">
                                             * Kosongi jika tidak diubah
                                         </p>
@@ -166,7 +169,7 @@
                                         </i>
                                         Batal
                                     </button>
-                                    <button autosave="" class="btn btn-primary" ng-click="save(form)" ng-hide="is_view">
+                                    <button autosave="" class="btn btn-primary" ng-click="save(form)" ng-disabled="cek <= 3" ng-hide="is_view">
                                         <i class="glyphicon glyphicon-floppy-save">
                                         </i>
                                         Simpan

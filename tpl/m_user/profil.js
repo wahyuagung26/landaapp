@@ -1,4 +1,6 @@
 app.controller('profilCtrl', function($scope, Data, toaster, $rootScope) {
+    $scope.form = {}
+    $scope.form.password = '';
     Data.get('appuser/view').then(function(result) {
         $scope.form = result.data;
     });

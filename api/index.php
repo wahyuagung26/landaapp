@@ -8,7 +8,6 @@ if (!file_exists(__DIR__ . '/sessions')) {
     mkdir(__DIR__ . '/sessions', 0777, true);
 }
 session_save_path(__DIR__ . '/sessions');
-
 session_start();
 
 require 'vendor/autoload.php';
@@ -22,10 +21,8 @@ if (file_exists('vendor/cahkampung/landa-php/src/LandaPhp.php')) {
     require 'vendor/cahkampung/landa-php/src/LandaPhp.php';
 }
 
-$display = (getenv('DISPLAY_ERRORS') == 'true') ? true : false;
-
 $config = [
-    'displayErrorDetails'               => $display,
+    'displayErrorDetails'               => config('DISPLAY_ERROR'),
     'determineRouteBeforeAppMiddleware' => true,
 ];
 

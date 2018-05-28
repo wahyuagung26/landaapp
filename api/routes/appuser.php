@@ -21,8 +21,7 @@ function validasi($data, $custom = array())
  * get user detail for update profile
  */
 $app->get('/appuser/view', function ($request, $response) {
-    $db = $this->db;
-
+    $db   = $this->db;
     $data = $db->find('select id, nama, username, m_roles_id from m_user where id = "' . $_SESSION['user']['id'] . '"');
 
     return successResponse($response, $data);
@@ -33,12 +32,7 @@ $app->get('/appuser/view', function ($request, $response) {
  */
 $app->get('/appuser/index', function ($request, $response) {
     $params = $request->getParams();
-
-    $sort   = "id DESC";
-    $offset = isset($params['offset']) ? $params['offset'] : 0;
-    $limit  = isset($params['limit']) ? $params['limit'] : 10;
-
-    $db = $this->db;
+    $db     = $this->db;
 
     $db->select("m_user.*, m_roles.nama as hakakses")
         ->from('m_user')
@@ -60,17 +54,17 @@ $app->get('/appuser/index', function ($request, $response) {
 
     /** Set limit */
     if (isset($params['limit']) && !empty($params['limit'])) {
-        $db->limit($limit);
+        $db->limit($params['limit']);
     }
 
     /** Set offset */
     if (isset($params['offset']) && !empty($params['offset'])) {
-        $db->offset($offset);
+        $db->offset($params['offset']);
     }
 
     /** Set sorting */
     if (isset($params['sort']) && !empty($params['sort'])) {
-        $db->sort($sort);
+        $db->orderBy($params['sort']);
     }
 
     $models    = $db->findAll();
@@ -110,8 +104,7 @@ $app->post('/appuser/create', function ($request, $response) {
 $app->post('/appuser/updateprofil', function ($request, $response) {
     $data = $request->getParams();
     $id   = $_SESSION['user']['id'];
-
-    $db = $this->db;
+    $db   = $this->db;
 
     if (!empty($data['password'])) {
         $data['password'] = sha1($data['password']);

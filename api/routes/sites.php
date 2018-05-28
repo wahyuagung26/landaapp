@@ -17,14 +17,14 @@ $app->post('/site/login', function ($request, $response) {
     $username = isset($params['username']) ? $params['username'] : '';
     $password = isset($params['password']) ? $params['password'] : '';
 
-    $model = $sql->select("m_user.*, m_roles.akses")
+    $sql->select("m_user.*, m_roles.akses")
         ->from("m_user")
         ->leftJoin("m_roles", "m_roles.id = m_user.m_roles_id")
         ->where("username", "=", $username)
-        ->andWhere("password", "=", sha1($password))
-        ->find();
-
-    if (!empty($model)) {
+        ->andWhere("password", "=", sha1($password));
+    
+    $model = $sql->find();
+    if (isset($model->id)) {
         $_SESSION['user']['id']         = $model->id;
         $_SESSION['user']['username']   = $model->username;
         $_SESSION['user']['nama']       = $model->nama;

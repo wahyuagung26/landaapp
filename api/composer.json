@@ -12,8 +12,7 @@
         "cahkampung/landa-db": "*",
         "cahkampung/landa-migrasi": "*",
         "cahkampung/landa-php": "*",
-        "wixel/gump": "dev-master",
-        "vlucas/phpdotenv": "^2.4"
+        "wixel/gump": "dev-master"
     },
     "autoload": {
         "psr-4": {
