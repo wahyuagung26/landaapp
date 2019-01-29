@@ -6,10 +6,11 @@
         "name": "wahyu agung",
         "email": "agung@landa.co.id"
     }],
-    "prefer-stable": true,
+    "prefer-stable": false,
+    "minimum-stability": "dev",
     "require": {
         "slim/slim": "^3.0",
-        "cahkampung/landa-db": "*",
+        "cahkampung/landa-db": "^1.2.3",
         "cahkampung/landa-migrasi": "*",
         "cahkampung/landa-php": "*",
         "wixel/gump": "dev-master"

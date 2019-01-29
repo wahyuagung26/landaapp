@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4248b552f72c7c6d5faa456be2a085c7",
+    "content-hash": "3fbc6826fb73c4ac058239a76c415aaa",
     "packages": [
         {
             "name": "cahkampung/landa-db",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cahkampung052/landadb.git",
-                "reference": "af56afac5ee7fff09304f1b8962f2710bb12f370"
+                "reference": "72d6ab51d06f1c55fd98953af13395eee2f70916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cahkampung052/landadb/zipball/af56afac5ee7fff09304f1b8962f2710bb12f370",
-                "reference": "af56afac5ee7fff09304f1b8962f2710bb12f370",
+                "url": "https://api.github.com/repos/cahkampung052/landadb/zipball/72d6ab51d06f1c55fd98953af13395eee2f70916",
+                "reference": "72d6ab51d06f1c55fd98953af13395eee2f70916",
                 "shasum": ""
             },
             "require": {
@@ -32,7 +32,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "DBAD"
+                "AFL-1.1"
             ],
             "authors": [
                 {
@@ -47,11 +47,11 @@
                 "pdo",
                 "slim"
             ],
-            "time": "2018-01-09T08:09:10+00:00"
+            "time": "2018-09-06T06:06:53+00:00"
         },
         {
             "name": "cahkampung/landa-migrasi",
-            "version": "1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cahkampung052/landamigrasi.git",
@@ -91,7 +91,7 @@
         },
         {
             "name": "cahkampung/landa-php",
-            "version": "0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cahkampung052/landaphp.git",
@@ -199,16 +199,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v3.2.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
+                "reference": "21e3e0dc89183c96fad7f12e09e1d345558e9a56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/21e3e0dc89183c96fad7f12e09e1d345558e9a56",
+                "reference": "21e3e0dc89183c96fad7f12e09e1d345558e9a56",
                 "shasum": ""
             },
             "require": {
@@ -240,25 +240,25 @@
                 }
             ],
             "description": "Pimple, a simple Dependency Injection Container",
-            "homepage": "http://pimple.sensiolabs.org",
+            "homepage": "https://pimple.symfony.com",
             "keywords": [
                 "container",
                 "dependency injection"
             ],
-            "time": "2018-01-21T07:42:36+00:00"
+            "time": "2018-04-20T06:17:25+00:00"
         },
         {
             "name": "psr/container",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
                 "shasum": ""
             },
             "require": {
@@ -294,11 +294,11 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2017-06-28T15:35:32+00:00"
         },
         {
             "name": "psr/http-message",
-            "version": "1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
@@ -348,16 +348,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "3.10.0",
+            "version": "3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "d8aabeacc3688b25e2f2dd2db91df91ec6fdd748"
+                "reference": "79051ab4bf76b9358fafead28390399163e87c92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/d8aabeacc3688b25e2f2dd2db91df91ec6fdd748",
-                "reference": "d8aabeacc3688b25e2f2dd2db91df91ec6fdd748",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/79051ab4bf76b9358fafead28390399163e87c92",
+                "reference": "79051ab4bf76b9358fafead28390399163e87c92",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +415,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2018-04-19T19:29:08+00:00"
+            "time": "2018-08-20T19:19:09+00:00"
         },
         {
             "name": "wixel/gump",
@@ -423,12 +423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Wixel/GUMP.git",
-                "reference": "ae496aa5e3683186953090e0f8d1d0d62d699cdd"
+                "reference": "b32c92206fb7014a40179b8468ba8bab90b3f879"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/ae496aa5e3683186953090e0f8d1d0d62d699cdd",
-                "reference": "ae496aa5e3683186953090e0f8d1d0d62d699cdd",
+                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/b32c92206fb7014a40179b8468ba8bab90b3f879",
+                "reference": "b32c92206fb7014a40179b8468ba8bab90b3f879",
                 "shasum": ""
             },
             "type": "library",
@@ -453,16 +453,16 @@
             ],
             "description": "A fast, extensible & stand-alone PHP input validation class that allows you to validate any data",
             "homepage": "https://wixelhq.com/",
-            "time": "2018-02-28T12:59:41+00:00"
+            "time": "2018-06-02T23:09:34+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "wixel/gump": 20
     },
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

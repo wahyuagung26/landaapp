@@ -85,7 +85,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
         function(isConfirm){
           if (isConfirm) {
              row.is_deleted = 1;
-            Data.post(control_link + '/update', row).then(function(result) {
+            Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
             swal("Terhapus", "Data Berhasil Di Hapus.", "success");
@@ -123,7 +123,7 @@ app.controller('rolesCtrl', function($scope, Data, toaster) {
         function(isConfirm){
           if (isConfirm) {
             row.is_deleted = 0;
-            Data.post(control_link + '/update', row).then(function(result) {
+            Data.post(control_link + '/save', row).then(function(result) {
                 $scope.displayed.splice($scope.displayed.indexOf(row), 1);
             });
             swal("Restore", "Data Berhasil Di Restore.", "success");
