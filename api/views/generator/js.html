@@ -37,9 +37,27 @@ app.controller("{{ctrl}}Ctrl", function($scope, Data, toaster) {
         });
         $scope.isLoading = false;
     };
-    Data.get("appakses/index").then(function(data) {
-        $scope.listHakakses = data.data.list;
-    });
+    {% if listFieldDet|length > 0 %}
+    $scope.getDetail = function(id){
+        Data.get("{{apiUrl}}/view?{{fieldRelasi}}=" + id).then(function(response) {
+            $scope.listPerlengkapan = response.data;
+        });
+    };
+    $scope.listDetail = [{}];
+    $scope.addDetail = function(val) {
+        var comArr = eval(val);
+        var newDet = {};
+        val.push(newDet);
+    };
+    $scope.removeDetail = function(val, paramindex) {
+        var comArr = eval(val);
+        if (comArr.length > 1) {
+            val.splice(paramindex, 1);
+        } else {
+            alert("Something gone wrong");
+        }
+    };
+    {% endif %}
     $scope.create = function(form) {
         $scope.is_edit = true;
         $scope.is_view = false;
@@ -52,17 +70,27 @@ app.controller("{{ctrl}}Ctrl", function($scope, Data, toaster) {
         $scope.is_view = false;
         $scope.formtittle = "Edit Data : " + form.{{firstField}};
         $scope.form = form;
-        $scope.form.password = "";
+        {% if listFieldDet|length > 0 %}
+        $scope.getDetail(form.id);
+        {% endif %}
     };
     $scope.view = function(form) {
         $scope.is_edit = true;
         $scope.is_view = true;
         $scope.formtittle = "Lihat Data : " + form.{{firstField}};
         $scope.form = form;
-        $scope.form.password = "";
+        {% if listFieldDet|length > 0 %}
+        $scope.getDetail(form.id);
+        {% endif %}
     };
     $scope.save = function(form) {
         $scope.loading = true;
+        {% if listFieldDet|length > 0 %}
+        var form = {
+            data: form,
+            detail: $scope.listDetail
+        }
+        {% endif %}
         Data.post("{{apiUrl}}/save", form).then(function(result) {
             if (result.status_code == 200) {
                 toaster.pop("success", "Berhasil", "Data berhasil tersimpan");

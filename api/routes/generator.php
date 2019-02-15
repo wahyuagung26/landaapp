@@ -33,7 +33,7 @@ $app->get('/generator/getTabel', function ($request, $response) {
  * Proses generate
  */
 $app->post('/generator/generate', function ($request, $response) {
-    $params = $request->getParams();
+    $params   = $request->getParams();
     $validasi = validasi($params);
     if ($validasi === true) {
         $table   = $params['table'];
@@ -41,20 +41,45 @@ $app->post('/generator/generate', function ($request, $response) {
         $filePhp = $params['filePhp'];
 
         $htmlJsPath = '../' . $path;
-        if(file_exists($htmlJsPath)){
-            // return unprocessResponse($response, ["Folder $path tidak kosong, untuk keamanan file anda harap masukkan path yang lain !"]);
+        $phpPath    = 'routes/' . $filePhp.'.php';
+        if (file_exists($htmlJsPath)) {
+            return unprocessResponse($response, ["Folder $path tidak kosong, untuk keamanan file anda harap masukkan path yang lain !"]);
+        }
+        if (file_exists($phpPath)) {
+            return unprocessResponse($response, ["File $filePhp.php sudah ada, untuk keamanan file anda harap masukkan nama yang lain !"]);
         }
 
-        $db  = $this->db;
+        $db = $this->db;
+
+        /**
+         * CEK TABEL DETAIL
+         */
+        $cekDetail    = $db->find("SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema = '" . config('DB')['db']['DB_NAME'] . "' AND table_name = '" . $table . "_det' LIMIT 1;");
+        $listFieldDet = [];
+        $fieldRelasi  = $table . '_id';
+        if (isset($cekDetail->TABLE_NAME) && !empty($cekDetail->TABLE_NAME)) {
+            $listFieldDet = $db->findAll("DESCRIBE $cekDetail->TABLE_NAME");
+            foreach ($listFieldDet as $key => $value) {
+                $value->maks = get_string_between($value->Type, "(", ")");
+                if ($value->maks == "") {
+                    $value->maks = "255";
+                }
+            }
+        }
+
         $listField = $db->findAll("DESCRIBE $table");
 
         $ctrl       = str_replace("_", "", $table);
         $tableName  = str_replace("_", " ", $table);
-        $firstField  = '';
+        $firstField = '';
         $is_deleted = false;
         foreach ($listField as $key => $value) {
             $value->nama      = ucwords($value->Field);
             $value->showField = "{{ row." . $value->Field . " }}";
+            $value->maks      = get_string_between($value->Type, "(", ")");
+            if ($value->maks == "") {
+                $value->maks = "255";
+            }
             if ($key == 1) {
                 $firstField = $value->Field;
             }
@@ -64,25 +89,31 @@ $app->post('/generator/generate', function ($request, $response) {
         }
 
         $viewHtml = $this->view->fetch('generator/html.html', [
-            "ctrl"       => $ctrl,
-            "field"      => $listField,
-            "is_deleted" => $is_deleted,
+            "ctrl"         => $ctrl,
+            "field"        => $listField,
+            "is_deleted"   => $is_deleted,
+            "listFieldDet" => $listFieldDet,
+            "fieldRelasi"  => $fieldRelasi,
         ]);
 
         $viewJs = $this->view->fetch('generator/js.html', [
-            "ctrl"       => $ctrl,
-            "apiUrl"     => $filePhp,
-            "firstField"  => $firstField,
-            "is_deleted" => $is_deleted,
+            "ctrl"         => $ctrl,
+            "apiUrl"       => $filePhp,
+            "firstField"   => $firstField,
+            "is_deleted"   => $is_deleted,
+            "listFieldDet" => $listFieldDet,
+            "fieldRelasi"  => $fieldRelasi,
         ]);
 
         $viewPhp = $this->view->fetch('generator/php.html', [
-            "ctrl"       => $ctrl,
-            "apiUrl"     => $filePhp,
-            "tableName"  => $tableName,
-            "table"      => $table,
-            "field"      => $listField,
-            "is_deleted" => $is_deleted,
+            "ctrl"         => $ctrl,
+            "apiUrl"       => $filePhp,
+            "tableName"    => $tableName,
+            "table"        => $table,
+            "field"        => $listField,
+            "is_deleted"   => $is_deleted,
+            "listFieldDet" => $listFieldDet,
+            "fieldRelasi"  => $fieldRelasi,
         ]);
 
         $htmlJsPath = '../' . $path;

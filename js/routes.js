@@ -89,7 +89,7 @@ angular.module("app").config(["$stateProvider", "$urlRouterProvider", "$ocLazyLo
             }
         }).state("pengguna.user", {
             url: "/user",
-            templateUrl: "tpl/muser/index.html",
+            templateUrl: "tpl/m_user/index.html",
             ncyBreadcrumb: {
                 label: "Pengguna"
             },
@@ -97,7 +97,7 @@ angular.module("app").config(["$stateProvider", "$urlRouterProvider", "$ocLazyLo
                 loadMyCtrl: ["$ocLazyLoad",
                     function($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            files: ["tpl/muser/index.js"]
+                            files: ["tpl/m_user/index.js"]
                         });
                     }
                 ]

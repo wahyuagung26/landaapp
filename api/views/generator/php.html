@@ -15,6 +15,20 @@ function validasi($data, $custom = array())
     $cek = validate($data, $validasi, $custom);
     return $cek;
 }
+{% if listFieldDet|length > 0 %}
+/**
+ * Ambil detail {{tableName}}
+ */
+$app->get("/{{apiUrl}}/view", function ($request, $response) {
+    $params = $request->getParams();
+    $db     = $this->db;
+    $db->select("*")
+        ->from("{{table}}_det")
+        ->where("{{fieldRelasi}}", "=", $params["{{fieldRelasi}}"]);
+    $models     = $db->findAll();
+    return successResponse($response, $models);
+});
+{% endif %}
 /**
  * Ambil semua {{tableName}}
  */
@@ -55,6 +69,42 @@ $app->get("/{{apiUrl}}/index", function ($request, $response) {
 /**
  * Save {{tableName}}
  */
+{% if listFieldDet|length > 0 %}
+$app->post("/{{apiUrl}}/save", function ($request, $response) {
+    $data     = $request->getParams();
+    $db       = $this->db;
+    $validasi = validasi($data["data"]);
+    if ($validasi === true) {
+        try {
+            if (isset($data["data"]["id"])) {
+                $model = $db->update("{{table}}", $data["data"], ["id" => $data["data"]["id"]]);
+                $db->delete("{{table}}_det", ["{{fieldRelasi}}" => $data["data"]["id"]]);
+            } else {
+                $model = $db->insert("{{table}}", $data["data"]);
+            }
+            /**
+             * Simpan detail
+             */
+            if(isset($data["detail"]) && !empty($data["detail"])){
+                foreach($data["detail"] as $key => $val){
+                    {% for key, val in listFieldDet %}
+                        {% if val.Field != fieldRelasi %}
+                        $detail["{{val.Field}}"] = isset($val["{{val.Field}}"]) ? $val["{{val.Field}}"] : '';
+                        {% endif %}
+                    {% endfor %}
+                    $detail["{{fieldRelasi}}"] = $model->id;
+                    $db->insert("{{table}}_det", $detail);
+                }
+            }
+            return successResponse($response, $model);
+        } catch (Exception $e) {
+            return unprocessResponse($response, ["terjadi masalah pada server"]);
+        }
+    }
+    return unprocessResponse($response, $validasi);
+});
+{% endif %}
+{% if listFieldDet|length <= 0 %}
 $app->post("/{{apiUrl}}/save", function ($request, $response) {
     $data     = $request->getParams();
     $db       = $this->db;
@@ -73,6 +123,7 @@ $app->post("/{{apiUrl}}/save", function ($request, $response) {
     }
     return unprocessResponse($response, $validasi);
 });
+{% endif %}
 {% if is_deleted %}
 /**
  * Save status {{tableName}}
@@ -101,6 +152,9 @@ $app->post("/{{apiUrl}}/hapus", function ($request, $response) {
     $db       = $this->db;
     try {
         $model = $db->delete("{{table}}", ["id" => $data["id"]]);
+        {% if listFieldDet|length > 0 %}
+        $modelDetail = $db->delete("{{table}}_det", ["{{fieldRelasi}}" => $data["id"]]);
+        {% endif %}
         return successResponse($response, $model);
     } catch (Exception $e) {
         return unprocessResponse($response, ["terjadi masalah pada server"]);

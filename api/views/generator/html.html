@@ -72,26 +72,70 @@
         </div>
         <div class="card" ng-if="is_edit">
             <div class="card-header">
-                <strong>{{ formtittle }}</strong>
+                <strong>
+                    {% set judul = "{{formtittle}}" %}
+                    {{ judul }}
+                </strong>
             </div>
             <div class="card-body">
                 <form name="landaform" novalidate="">
                     <div class="row">
                         <div class="col-md-12">
                             {% for key, val in field %}
+                            {% if val.Key != 'PRI' %}
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label-sm">{{ val.nama }}</label>
                                 <div class="col-sm-9">
                                     {% if val.Type == 'date' %}
                                     <input type="text" class="form-control form-control-sm" ng-click="toggle($event, '{{ val.Field }}')"  is-open="opened.{{ val.Field }}" uib-datepicker-popup="dd-MM-yyyy" ng-model="form.{{ val.Field }}" ng-disabled="is_view"/>
                                     {% else %}
-                                    <input type="text" class="form-control form-control-sm" ng-model="form.{{ val.Field }}" ng-disabled="is_view"/>
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.{{ val.Field }}" maxlength="{{val.maks}}" ng-disabled="is_view"/>
                                     {% endif %}
                                 </div>
                             </div>
+                            {% endif %}
                             {% endfor %}
                         </div>
                     </div>
+                    {% if listFieldDet|length > 0 %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="tittle-header" style="margin-bottom: 0px;">Detail</h6>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <tr>
+                                            {% for key, val in listFieldDet %}
+                                            {% if val.Key != 'PRI' and val.Field != fieldRelasi %}
+                                            <th class="align-left">{{val.Field}}</th>
+                                            {% endif %}
+                                            {% endfor %}
+                                            <th class="align-center" style="width: 10px;">
+                                                <button type="button" class="btn btn-success fa fa-plus" ng-click="addDetail(listDetail)" ng-disabled="is_view"></button>
+                                            </th>
+                                        </tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="v in listDetail">
+                                        {% for key, val in listFieldDet %}
+                                        {% if val.Key != 'PRI' and val.Field != fieldRelasi %}
+                                        <td class="align-left">
+                                            <input type="text" class="form-control form-control-sm" maxlength="{{val.maks}}" ng-model="v.{{val.Field}}" ng-disabled="is_view"/>
+                                        </td>
+                                        {% endif %}
+                                        {% endfor %}
+                                        <td class="align-center">
+                                            <button type="button" class="btn btn-danger fa fa-minus" ng-click="removeDetail(listDetail, $index)" ng-disabled="is_view"></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {% endif %}
                 </form>
             </div>
             <div class="card-footer">

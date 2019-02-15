@@ -20,6 +20,7 @@
                                         <option value="">-Pilih Tabel-</option>
                                         <option ng-repeat="kat in listTabel" value="{{ kat }}">{{ kat }}</option>
                                     </select>
+                                     <p class="help-block help-block-sm" ng-if="form.table != ''">Sistem akan mencari {{form.table}}_det</p>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -1,6 +1,17 @@
 // config
-var app = angular.module("app").config(["$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "$qProvider",
-    function($controllerProvider, $compileProvider, $filterProvider, $provide, $qProvider) {
+var app = angular.module("app").config([
+    "$controllerProvider",
+    "$compileProvider",
+    "$filterProvider",
+    "$provide",
+    "$qProvider",
+    function(
+        $controllerProvider,
+        $compileProvider,
+        $filterProvider,
+        $provide,
+        $qProvider
+    ) {
         $qProvider.errorOnUnhandledRejections(false);
         app.controller = $controllerProvider.register;
         app.directive = $compileProvider.directive;
