@@ -1,0 +1,61 @@
+<header>
+    <div class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-brand d-md-down-none" style="margin-top: 49px;">
+            <img class="img-fluid img-brand" src="img/logo.png" style="width: 85%"/>
+        </div>
+        <div class=" d-lg-none">
+            <h6 class="navbar-brand-text">Landa Core</h6>
+        </div>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item">
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.akses">
+                    <i class="icon-people"></i>
+                    Master Hak Akses
+                </a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.user">
+                    <i class="fa fa-user-o"></i>
+                    Master User
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto pr-25px">
+            <li>
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.generator">
+                    <i class="icon-bell"></i>
+                    Landa CRUD Generator
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="img/user.png" class="img-avatar"/>
+                    <span class="d-md-down-none">{{ user.nama }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" ui-sref="pengguna.profil" ng-if="user.m_roles_id != 4">
+                        <i class="fa fa-bell-o"></i>
+                        Perbarui Profil
+                    </a>
+                    <a class="dropdown-item" ng-click="logout()" style="cursor: pointer;">
+                        <i class="fa fa-lock"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ol breadcrumb="" class="breadcrumb d-md-down-none">
+        <ncy-breadcrumb></ncy-breadcrumb>
+    </ol>
+</header>

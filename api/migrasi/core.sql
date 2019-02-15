@@ -1,23 +1,19 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 26 Sep 2017 pada 15.30
--- Versi Server: 5.7.19-0ubuntu0.16.04.1
--- PHP Version: 7.0.22-0ubuntu0.16.04.1
+-- Waktu pembuatan: 15 Feb 2019 pada 02.15
+-- Versi server: 5.7.21
+-- Versi PHP: 7.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `landa_slim`
+-- Database: `landa_app`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +34,7 @@ CREATE TABLE `m_roles` (
 --
 
 INSERT INTO `m_roles` (`id`, `nama`, `akses`, `is_deleted`) VALUES
-(1, 'Super Admin', '{"master_roles":true,"master_user":true,"master_akses":true}', 0);
+(1, 'Super Admin', '{\"master_roles\":true,\"master_user\":true,\"master_akses\":true,\"pengguna_akses\":true,\"pengguna_user\":true,\"app_transaksi1\":true,\"laporan_laporan1\":true}', 0);
 
 -- --------------------------------------------------------
 
@@ -49,6 +45,9 @@ INSERT INTO `m_roles` (`id`, `nama`, `akses`, `is_deleted`) VALUES
 CREATE TABLE `m_user` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `telepon` varchar(25) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `m_roles_id` int(5) DEFAULT NULL,
@@ -59,39 +58,38 @@ CREATE TABLE `m_user` (
 -- Dumping data untuk tabel `m_user`
 --
 
-INSERT INTO `m_user` (`id`, `nama`, `username`, `password`, `m_roles_id`, `is_deleted`) VALUES
-(1, 'Super Administrator', 'admin', '63c8f0854166152eaacc876088a8e6b1729ca2d7', 1, 0);
+INSERT INTO `m_user` (`id`, `nama`, `email`, `alamat`, `telepon`, `username`, `password`, `m_roles_id`, `is_deleted`) VALUES
+(1, 'Super Administrator', '', '', '', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `m_roles`
+-- Indeks untuk tabel `m_roles`
 --
 ALTER TABLE `m_roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `m_user`
+-- Indeks untuk tabel `m_user`
 --
 ALTER TABLE `m_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `m_roles`
+-- AUTO_INCREMENT untuk tabel `m_roles`
 --
 ALTER TABLE `m_roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT for table `m_user`
+-- AUTO_INCREMENT untuk tabel `m_user`
 --
 ALTER TABLE `m_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;

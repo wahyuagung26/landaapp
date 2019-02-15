@@ -1,0 +1,171 @@
+<div class="animated fadeIn">
+    <div ng-controller="userCtrl">
+        <div class="card" st-pipe="callServer" st-table="displayed" ng-if="!is_edit">
+            <div class="card-header">
+                <strong class="d-md-down-none">Daftar Pengguna</strong>
+                <div class="btn-group pull-right mt-5px" role="group">
+                    <button class="btn btn-secondary btn-sm" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+                        <i class="fa fa-search"></i>
+                        &nbsp;Pencarian
+                    </button>
+                    <button class="btn btn-primary btn-sm" ng-click="create();">
+                        <i class="fa fa-plus"></i>
+                        &nbsp;Buat Baru
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0px">
+                <div class="pl-15px pr-15px">
+                    <div class="row mt-15px" ng-show="!isCollapsed">
+                        <div class="col-md-12">
+                            <div class="alert alert-secondary">
+                                <form name="landaform" novalidate="">
+                                    <div class="form-group row mb-0">
+                                        <label class="col-sm-1 col-form-label-sm mb-0">Nama</label>
+                                        <div class="col-sm-2">
+                                            <input st-search="nama" class="form-control form-control-sm" placeholder="Cari berdasarkan nama"/>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label-sm mb-0">Username</label>
+                                        <div class="col-sm-2">
+                                            <input st-search="username" class="form-control form-control-sm" placeholder="Cari berdasarkan username"/>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label-sm mb-0">Status</label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control form-control-sm" st-search="is_deleted">
+                                                <option value="0">Aktif</option>
+                                                <option value="1">Terhapus</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <tr>
+                                    <th class="align-left">Username</th>
+                                    <th class="align-left">Nama</th>
+                                    <th class="align-left">Alamat</th>
+                                    <th class="align-left">No Telepon</th>
+                                    <th class="align-left">Hak Akses</th>
+                                    <th></th>
+                                </tr>
+                            </tr>
+                        </thead>
+                        <tbody ng-show="!isLoading">
+                            <tr ng-repeat="row in displayed" ng-dblclick="view(row)">
+                                <td class="align-left">{{ row.username }}</td>
+                                <td class="align-left">{{ row.nama }}</td>
+                                <td class="align-left">{{ row.email }}</td>
+                                <td class="align-left">{{ row.telepon }}</td>
+                                <td class="align-left">{{ row.hakakses }}</td>
+                                <td>
+                                    <div class="btn-group pull-right" role="group">
+                                        <button type="button" class="btn btn-info fa fa-pencil" ng-if="row.is_deleted == 0" ng-click="update(row)"></button>
+                                        <button type="button" class="btn btn-danger fa fa-trash" ng-if="row.is_deleted == 0" ng-click="trash(row);"></button>
+                                        <button type="button" class="btn btn-warning fa fa-refresh" ng-if="row.is_deleted == 1" ng-click="restore(row);"></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div st-pagination="" st-items-by-page="10" st-template="tpl/common/pagination.custom.html"></div>
+            </div>
+        </div>
+        <div class="card" ng-if="is_edit">
+            <div class="card-header">
+                <strong>{{ formtittle }}</strong>
+            </div>
+            <div class="card-body">
+                <form name="landaform" novalidate="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="tittle-header">Profil Pengguna</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label-sm required">Nama</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.nama" ng-disabled="is_view" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label-sm">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control form-control-sm" ng-model="form.email" ng-disabled="is_view" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label-sm">No Telp</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm angka align-left" ng-model="form.telepon" ng-disabled="is_view" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-1 col-form-label-sm">Alamat</label>
+                                <div class="col-sm-11">
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.alamat" ng-disabled="is_view" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h6 class="tittle-header">Detail Login</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label-sm required">Username</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.username" ng-disabled="is_view" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                               <label class="col-sm-3 col-form-label-sm">Password</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control form-control-sm" id="pw" ng-disabled="is_view" ng-model="form.password" type="password"/>
+                                    <ul check-strength="form.password" id="strength" model="cek"></ul>
+                                    <p class="help-block help-block-sm">* Kosongi jika password tidak diubah</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                               <label class="col-sm-3 col-form-label-sm required">Hak Akses</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control form-control-sm" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
+                                        <option value="">-Pilih Hak Akses-</option>
+                                        <option ng-repeat="kat in listHakakses" value="{{ kat.id }}">{{ kat.nama }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-secondary btn-sm" ng-click="cancel()">
+                        <i class="fa fa-arrow-left"></i>
+                        &nbsp;Kembali
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm" ng-hide="is_view" button-spinner="loading" ng-disabled="cek  <= 3 || loading" ng-click="save(form)">
+                        <i class="fa fa-save"></i>
+                        &nbsp;Simpan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

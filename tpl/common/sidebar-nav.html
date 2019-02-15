@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-title">Menu</li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.main">
+                    <i class="icon-speedometer"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-title" ng-if="user.m_roles_id != 4">Pengaturan</li>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('pengguna')}" ng-if="user.akses.pengguna_akses || user.akses.pengguna_user">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('pengguna')}" href="#">
+                    <i class="fa fa-user-o"></i>
+                    User Login
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item" ng-if="user.akses.pengguna_akses">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.akses">
+                            <i class="icon-cursor"></i>
+                            Hak Akses
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-if="user.akses.pengguna_user">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.user">
+                            <i class="icon-cursor"></i>
+                            Pengguna
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

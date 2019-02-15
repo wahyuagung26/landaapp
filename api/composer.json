@@ -13,7 +13,7 @@
         "cahkampung/landa-db": "^1.2.3",
         "cahkampung/landa-migrasi": "*",
         "cahkampung/landa-php": "*",
-        "wixel/gump": "dev-master"
+        "slim/twig-view": "dev-master"
     },
     "autoload": {
         "psr-4": {

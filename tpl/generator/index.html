@@ -1,0 +1,52 @@
+<div class="animated fadeIn">
+    <div ng-controller="crudGeneratorCtrl">
+        <div class="card">
+            <div class="card-header">
+                <strong>Landa CRUD Generator V Beta</strong>
+            </div>
+            <div class="card-body">
+                <form name="landaform" novalidate="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-warning">
+                                Harap matikan menu ini apabila aplikasi akan di deliver ke Client !
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label-sm required">Pilih Tabel</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-sm" ng-model="form.table">
+                                        <option value="">-Pilih Tabel-</option>
+                                        <option ng-repeat="kat in listTabel" value="{{ kat }}">{{ kat }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label-sm required">Path HTML & JS</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.path"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label-sm required">Nama File PHP</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.filePhp"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label-sm"></label>
+                                <div class="col-sm-8">
+                                    <button type="submit" class="btn btn-primary btn-sm" button-spinner="loading" ng-disabled="cek <= 3 || loading" ng-click="generate(form)">
+                                        <i class="fa fa-save"></i>
+                                        &nbsp;Generate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

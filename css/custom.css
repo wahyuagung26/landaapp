@@ -1,0 +1,219 @@
+/**
+ * Align
+ */
+.align-center{
+    text-align: center !important;
+}
+.align-left{
+    text-align: left !important;
+}
+.align-right{
+    text-align: right !important;
+}
+/**
+ * End align
+ */
+
+/**
+ * Padding style
+ */
+.pr-25px{
+	padding-right: 25px;
+}
+.pt-0px{
+	padding-top: 0px;
+}
+.pl-15px{
+    padding-left: 15px;
+}
+.pr-15px{
+    padding-right: 15px;
+}
+.p-0px{
+	padding: 0px; 
+}
+.pb-15px{
+    padding-bottom: 15px;
+}
+.pl-0px{
+    padding-left: 0px;
+}
+.pr-0px{
+    padding-right: 0px;
+}
+/**
+ * End padding style
+ */
+
+/**
+ * Margin style
+ */
+.mt-5px{
+	margin-top: 5px;
+}
+.mt-15px{
+	margin-top: 15px;
+}
+.mb-0px{
+	margin-bottom: 0px;
+}
+/**
+ * End margin style
+ */
+
+/**
+ * Template
+ */
+.fs-12px{
+    font-size: 12px;
+}
+.i-checks{
+	font-size: 12px;
+	margin-bottom: 0px;
+}
+.tittle-header{
+    padding-bottom: 15px;
+    margin-top: 15px;
+    color: #000000;
+    margin-bottom: 15px;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+}
+.pagination{
+    font-size: 12px;
+}
+.ui-select-bootstrap .ui-select-match .btn-default{
+    height: 28px;
+    font-size: 12px;
+}
+.ui-select-toggle{
+    padding-top: 5px; 
+}
+.ui-select-bootstrap .ui-select-choices-row>span{
+    font-size: 12px;
+}
+.ui-select-search{
+    font-size: 12px;
+    height: 28px;
+}
+.sidebar .nav-item a{
+    font-size: 12px;
+}
+.angka{
+    text-align: center;
+}
+.badge-table{
+    font-size: 11px;
+}
+.input-group-sm{
+    height: 28px;
+}
+.input-group-sm .input-group-text{
+    font-size: 11px;
+}
+.rp{
+    text-align: right;
+}
+.required::after {
+    content: '*';
+    color: red;
+}
+.steps-indicator li.current a:before{
+    background-color: #31b5f5 !important;
+}
+.app-header.navbar .navbar-brand{
+    padding: 0px;
+    padding-right: 0px;
+    border-right: 1px solid #f0f3f5;
+    position: relative;
+    height: 93px;
+    font-size: 20px;
+    border-bottom: none;
+    background-color: #ffff;
+    width: 200px;
+    text-align: center;
+    border-bottom: 1px solid #f0f3f5;
+}
+.px-3{
+    font-size: 13px;
+}
+.navbar-brand{
+    margin-top: 5px;
+}
+.navbar-brand-text{
+    margin-top: 8px;
+}
+.img-brand{
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+/**
+ * End template
+ */
+
+/** 
+ * Password Checker
+ */
+input.ng-pristine + ul#strength {
+    display: none;
+}
+ul#strength {
+    /*display: inline;*/
+    list-style: none;
+    margin: 0;
+    /*margin-left: 15px;*/
+    padding: 0;
+    vertical-align: 2px;
+}
+.point:last {
+    margin: 0 !important;
+}
+.point {
+    background: #ddd;
+    border-radius: 2px;
+    display: inline-block;
+    height: 5px;
+    margin-right: 1px;
+    width: 20px;
+}
+.point-text {
+    background: #ddd;
+    display: inline-block;
+    height: 5px;
+    margin-right: 1px;
+    margin-left: 4px;
+    background-color: transparent;
+    font-size: 11px;
+}
+
+.help-block-sm{
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+
+/** End Password Checker */
+
+/**
+ * Table
+ */
+.table td, .table th{
+	border-top: 1px solid #c9ced3;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.table thead th{
+	border-bottom: 1px solid #efefef;
+}
+.table td, .table th{
+    vertical-align: middle;
+}
+/**
+ * End table
+ */
+

@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h3 class="modal-title" style="font-size: 16px;">
+        Please Login To Application
+    </h3>
+</div>
+<div class="modal-body">
+    <div class="row" ng-if="authError.length > 0">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <span ng-bind-html="authError" style="font-size: 12px;">
+                </span>
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal form-validation" name="landaform" novalidate="">
+       <div class="form-group row">
+            <label class="col-sm-4 col-form-label-sm required">
+                Username
+            </label>
+            <div class="col-md-8">
+                <input class="form-control form-control-sm" ng-disabled="is_view" ng-model="form.username" placeholder="Username" type="text"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label-sm required">
+                Password
+            </label>
+            <div class="col-md-8">
+                <input class="form-control form-control-sm" ng-disabled="is_view" ng-model="form.password" placeholder="Password" type="password"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="login(form)" type="button">
+        Login
+    </button>
+</div>

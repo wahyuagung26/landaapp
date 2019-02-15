@@ -74,26 +74,26 @@ function getUrlFile()
 
 function successResponse($response, $message)
 {
-    return $response->withJson([
+    return $response->write(json_encode([
         'status_code' => 200,
         'data'        => $message,
-    ], 200);
+    ]))->withStatus(200);
 }
 
 function unprocessResponse($response, $message)
 {
-    return $response->withJson([
+    return $response->write(json_encode([
         'status_code' => 422,
         'errors'      => $message,
-    ], 422);
+    ]))->withStatus(200);
 }
 
 function unauthorizedResponse($response, $message)
 {
-    return $response->withJson([
+    return $response->write(json_encode([
         'status_code' => 403,
         'errors'      => $message,
-    ], 403);
+    ]))->withStatus(403);
 }
 
 function validate($data, $validasi, $custom = [])
@@ -104,7 +104,10 @@ function validate($data, $validasi, $custom = [])
         $validasiData = $validasi;
     }
 
-    $validate = GUMP::is_valid($data, $validasiData);
+    $lang = 'en';
+    $gump = new GUMP($lang);
+    
+    $validate = $gump->is_valid($data, $validasiData);
 
     if ($validate === true) {
         return true;

@@ -1,0 +1,39 @@
+<div ng-controller="forgotCtrl">
+    <div class="app flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card-group">
+                        <div class="card p-4">
+                            <div class="card-body">
+                                <!-- <form name="form"> -->
+                                <h3>Lupa Kata Sandi ?</h3>
+                                <p class="text-muted">Masukkan email yang anda gunakan untuk mendaftar</p>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-envelope-open-o"></i>
+                                        </span>
+                                    </div>
+                                    <input type="email" class="form-control" ng-model="form.email" placeholder="Email"/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-primary px-4" ng-click="reset(form)" button-spinner="loading" ng-disabled="loading">
+                                            <i class="fa fa-refresh"></i>
+                                            Reset Password
+                                        </button>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a class="btn btn-link px-0" ui-sref="page.login">Kembali</a>
+                                    </div>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
