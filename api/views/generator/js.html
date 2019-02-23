@@ -40,7 +40,7 @@ app.controller("{{ctrl}}Ctrl", function($scope, Data, toaster) {
     {% if listFieldDet|length > 0 %}
     $scope.getDetail = function(id){
         Data.get("{{apiUrl}}/view?{{fieldRelasi}}=" + id).then(function(response) {
-            $scope.listPerlengkapan = response.data;
+            $scope.listDetail = response.data;
         });
     };
     $scope.listDetail = [{}];
