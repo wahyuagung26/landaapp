@@ -1,18 +1,4 @@
-angular
-    .module("app")
-    .directive("includeReplace", includeReplace)
-    .directive("a", preventClickDirective)
-    .directive("a", bootstrapCollapseDirective)
-    .directive("a", navigationDirective)
-    .directive("button", layoutToggleDirective)
-    .directive("a", layoutToggleDirective)
-    .directive("button", collapseMenuTogglerDirective)
-    .directive("div", bootstrapCarouselDirective)
-    .directive("toggle", bootstrapTooltipsPopoversDirective)
-    .directive("tab", bootstrapTabsDirective)
-    .directive("button", cardCollapseDirective)
-    .directive("checkStrength", passwordChecker)
-    .directive("pageSelect", pageSelect);
+angular.module("app").directive("includeReplace", includeReplace).directive("a", preventClickDirective).directive("a", bootstrapCollapseDirective).directive("a", navigationDirective).directive("button", layoutToggleDirective).directive("a", layoutToggleDirective).directive("button", collapseMenuTogglerDirective).directive("div", bootstrapCarouselDirective).directive("toggle", bootstrapTooltipsPopoversDirective).directive("tab", bootstrapTabsDirective).directive("button", cardCollapseDirective).directive("checkStrength", passwordChecker).directive("pageSelect", pageSelect);
 
 function includeReplace() {
     var directive = {
@@ -52,9 +38,7 @@ function bootstrapCollapseDirective() {
 
     function link(scope, element, attrs) {
         if (attrs.toggle == "collapse") {
-            element
-                .attr("href", "javascript;;")
-                .attr("data-target", attrs.href.replace("index.html", ""));
+            element.attr("href", "javascript;;").attr("data-target", attrs.href.replace("index.html", ""));
         }
     }
 }
@@ -70,29 +54,15 @@ function navigationDirective() {
     return directive;
 
     function link(scope, element, attrs) {
-        if (
-            element.hasClass("nav-dropdown-toggle") &&
-            angular.element("body").width() > 782
-        ) {
+        if (element.hasClass("nav-dropdown-toggle") && angular.element("body").width() > 782) {
             element.on("click", function() {
                 if (!angular.element("body").hasClass("compact-nav")) {
-                    element
-                        .parent()
-                        .toggleClass("open")
-                        .find(".open")
-                        .removeClass("open");
+                    element.parent().toggleClass("open").find(".open").removeClass("open");
                 }
             });
-        } else if (
-            element.hasClass("nav-dropdown-toggle") &&
-            angular.element("body").width() < 783
-        ) {
+        } else if (element.hasClass("nav-dropdown-toggle") && angular.element("body").width() < 783) {
             element.on("click", function() {
-                element
-                    .parent()
-                    .toggleClass("open")
-                    .find(".open")
-                    .removeClass("open");
+                element.parent().toggleClass("open").find(".open").removeClass("open");
             });
         }
     }
@@ -108,10 +78,7 @@ function sidebarNavDynamicResizeDirective($window, $timeout) {
     return directive;
 
     function link(scope, element, attrs) {
-        if (
-            element.hasClass("sidebar-nav") &&
-            angular.element("body").hasClass("fixed-nav")
-        ) {
+        if (element.hasClass("sidebar-nav") && angular.element("body").hasClass("fixed-nav")) {
             var bodyHeight = angular.element(window).height();
             scope.$watch(function() {
                 var headerHeight = angular.element("header").outerHeight();
@@ -124,25 +91,12 @@ function sidebarNavDynamicResizeDirective($window, $timeout) {
             angular.element($window).bind("resize", function() {
                 var bodyHeight = angular.element(window).height();
                 var headerHeight = angular.element("header").outerHeight();
-                var sidebarHeaderHeight = angular
-                    .element(".sidebar-header")
-                    .outerHeight();
-                var sidebarFooterHeight = angular
-                    .element(".sidebar-footer")
-                    .outerHeight();
+                var sidebarHeaderHeight = angular.element(".sidebar-header").outerHeight();
+                var sidebarFooterHeight = angular.element(".sidebar-footer").outerHeight();
                 if (angular.element("body").hasClass("sidebar-off-canvas")) {
-                    element.css(
-                        "height",
-                        bodyHeight - sidebarHeaderHeight - sidebarFooterHeight
-                    );
+                    element.css("height", bodyHeight - sidebarHeaderHeight - sidebarFooterHeight);
                 } else {
-                    element.css(
-                        "height",
-                        bodyHeight -
-                            headerHeight -
-                            sidebarHeaderHeight -
-                            sidebarFooterHeight
-                    );
+                    element.css("height", bodyHeight - headerHeight - sidebarHeaderHeight - sidebarFooterHeight);
                 }
             });
         }
@@ -179,10 +133,7 @@ function collapseMenuTogglerDirective() {
 
     function link(scope, element, attrs) {
         element.on("click", function() {
-            if (
-                element.hasClass("navbar-toggler") &&
-                !element.hasClass("layout-toggler")
-            ) {
+            if (element.hasClass("navbar-toggler") && !element.hasClass("layout-toggler")) {
                 angular.element("body").toggleClass("sidebar-mobile-show");
             }
         });
@@ -199,14 +150,7 @@ function bootstrapCarouselDirective() {
     function link(scope, element, attrs) {
         if (attrs.ride == "carousel") {
             element.find("a").each(function() {
-                $(this)
-                    .attr(
-                        "data-target",
-                        $(this)
-                            .attr("href")
-                            .replace("index.html", "")
-                    )
-                    .attr("href", "javascript;;");
+                $(this).attr("data-target", $(this).attr("href").replace("index.html", "")).attr("href", "javascript;;");
             });
         }
     }
@@ -252,28 +196,13 @@ function cardCollapseDirective() {
     return directive;
 
     function link(scope, element, attrs) {
-        if (
-            attrs.toggle == "collapse" &&
-            element.parent().hasClass("card-actions")
-        ) {
-            if (
-                element
-                    .parent()
-                    .parent()
-                    .parent()
-                    .find(".card-body")
-                    .hasClass("in")
-            ) {
+        if (attrs.toggle == "collapse" && element.parent().hasClass("card-actions")) {
+            if (element.parent().parent().parent().find(".card-body").hasClass("in")) {
                 element.find("i").addClass("r180");
             }
             var id = "collapse-" + Math.floor(Math.random() * 1000000000 + 1);
             element.attr("data-target", "#" + id);
-            element
-                .parent()
-                .parent()
-                .parent()
-                .find(".card-body")
-                .attr("id", id);
+            element.parent().parent().parent().find(".card-body").attr("id", id);
             element.on("click", function() {
                 element.find("i").toggleClass("r180");
             });
@@ -290,8 +219,7 @@ function passwordChecker() {
             idx: "=model"
         },
         link: link,
-        template:
-            '<li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li><li class="point-text">{{text}}</li>'
+        template: '<li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li><li class="point-text">{{text}}</li>'
     };
     return directive;
 
@@ -349,15 +277,11 @@ function passwordChecker() {
                 element.css({
                     display: "inline"
                 });
-                element
-                    .children(".point")
-                    .css({
-                        background: "#DDD"
-                    })
-                    .slice(0, c.idx)
-                    .css({
-                        background: c.col
-                    });
+                element.children(".point").css({
+                    background: "#DDD"
+                }).slice(0, c.idx).css({
+                    background: c.col
+                });
                 if (scope.idx <= 3) {
                     scope.text = "Password terlalu lemah";
                 } else if (scope.idx == 4) {
@@ -373,8 +297,7 @@ function passwordChecker() {
 function pageSelect() {
     var directive = {
         restrict: "E",
-        template:
-            '<input type="text" class="select-page align-center" ng-model="inputPage" ng-change="selectPage(inputPage)" style="width: 50px;">',
+        template: '<input type="text" class="select-page align-center" ng-model="inputPage" ng-change="selectPage(inputPage)" style="width: 50px;">',
         link: link
     };
     return directive;

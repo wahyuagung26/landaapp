@@ -1,4 +1,4 @@
-app.controller("profilCtrl", function($scope, Data, toaster, UserService) {
+app.controller("profilCtrl", function($scope, Data, $rootScope, UserService) {
     /**
      * Inialisasi
      */
@@ -17,13 +17,9 @@ app.controller("profilCtrl", function($scope, Data, toaster, UserService) {
         $scope.loading = true;
         Data.post("appuser/save", form).then(function(result) {
             if (result.status_code == 200) {
-                toaster.pop("success", "Berhasil", "Data berhasil tersimpan");
+                $rootScope.alert("Berhasil", "Data berhasil tersimpan", "success");
             } else {
-                toaster.pop(
-                    "error",
-                    "Terjadi Kesalahan",
-                    setErrorMessage(result.errors)
-                );
+                $rootScope.alert("Terjadi Kesalahan", setErrorMessage(result.errors), "error");
             }
             $scope.loading = false;
         });

@@ -216,4 +216,23 @@ ul#strength {
 /**
  * End table
  */
+/**
+ * Sweet alert
+ */
+.swal2-popup .swal2-title{
+    font-size: 20px;
+}
 
+.swal2-popup #swal2-content {
+    font-size: 16px;
+    text-align: center;
+}
+
+/**
+ * Medium
+ */
+.medium-editor-toolbar li button{
+    min-width: 35px !important;
+    height: 35px !important;
+    padding: 5px !important;
+}

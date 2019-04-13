@@ -1,4 +1,4 @@
-app.controller("userCtrl", function($scope, Data, toaster) {
+app.controller("userCtrl", function($scope, Data, $rootScope) {
     /**
      * Inialisasi
      */
@@ -68,14 +68,10 @@ app.controller("userCtrl", function($scope, Data, toaster) {
         $scope.loading = true;
         Data.post("appuser/save", form).then(function(result) {
             if (result.status_code == 200) {
-                toaster.pop("success", "Berhasil", "Data berhasil tersimpan");
+                $rootScope.alert("Berhasil", "Data berhasil disimpan", "success");
                 $scope.cancel();
             } else {
-                toaster.pop(
-                    "error",
-                    "Terjadi Kesalahan",
-                    setErrorMessage(result.errors)
-                );
+                $rootScope.alert("Terjadi Kesalahan", setErrorMessage(result.errors) ,"error");
             }
             $scope.loading = false;
         });

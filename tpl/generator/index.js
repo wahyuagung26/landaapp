@@ -1,4 +1,4 @@
-app.controller("crudGeneratorCtrl", function($scope, Data, toaster, UserService) {
+app.controller("crudGeneratorCtrl", function($scope, Data, $rootScope, UserService) {
     /**
      * Inialisasi
      */
@@ -16,19 +16,19 @@ app.controller("crudGeneratorCtrl", function($scope, Data, toaster, UserService)
     });
     $scope.generate = function(form) {
         if (form.table == "" || form.path == "" || form.filePhp == "") {
-            toaster.pop("error", "Terjadi Kesalahan", "Pastikan semua inputan tidak kosong!");
+            $rootScope.alert("Terjadi kesalahan", "Pastikan semua inputan tidak kosong", "error");
         } else {
             $scope.loading = true;
             Data.post("generator/generate", $scope.form).then(function(result) {
                 if (result.status_code == 200) {
-                    toaster.pop("success", "Berhasil", "Data berhasil tersimpan");
+                    $rootScope.alert("Berhasil", "Proses generate telah selesai", "success");
                     $scope.form = {
                         table: "",
                         path: "tpl/",
                         filePhp: ""
                     };
                 } else {
-                    toaster.pop("error", "Terjadi Kesalahan", setErrorMessage(result.errors));
+                    $rootScope.alert("Terjadi kesalahan", setErrorMessage(result.errors), "error");
                 }
                 $scope.loading = false;
             });
