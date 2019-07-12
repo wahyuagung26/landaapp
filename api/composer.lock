@@ -4,8 +4,40 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f04bae5e8fa233edc4101e81881a4309",
+    "content-hash": "a80dce758823d7418d1d376714e0cd70",
     "packages": [
+        {
+            "name": "cahkampung/landa-acc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cahkampung052/landa-acc.git",
+                "reference": "047dd9c77e8274fb982024ee6ce4a43192192f81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cahkampung052/landa-acc/zipball/047dd9c77e8274fb982024ee6ce4a43192192f81",
+                "reference": "047dd9c77e8274fb982024ee6ce4a43192192f81",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "modul",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Wahyu Agung Tribawono",
+                    "email": "wahyuagung26@gmail.com"
+                }
+            ],
+            "description": "Modul Akuntansi Landa",
+            "keywords": [
+                "akuntansi",
+                "modul"
+            ],
+            "time": "2019-06-24T03:56:46+00:00"
+        },
         {
             "name": "cahkampung/landa-db",
             "version": "1.2.3",
@@ -663,8 +695,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpmailer/phpmailer": 20,
-        "slim/twig-view": 20
+        "slim/twig-view": 20,
+        "cahkampung/landa-acc": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

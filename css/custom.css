@@ -1,13 +1,13 @@
 /**
  * Align
  */
-.align-center{
+.align-center {
     text-align: center !important;
 }
-.align-left{
+.align-left {
     text-align: left !important;
 }
-.align-right{
+.align-right {
     text-align: right !important;
 }
 /**
@@ -17,28 +17,29 @@
 /**
  * Padding style
  */
-.pr-25px{
-	padding-right: 25px;
+
+.pr-25px {
+    padding-right: 25px;
 }
-.pt-0px{
-	padding-top: 0px;
+.pt-0px {
+    padding-top: 0px;
 }
-.pl-15px{
+.pl-15px {
     padding-left: 15px;
 }
-.pr-15px{
+.pr-15px {
     padding-right: 15px;
 }
-.p-0px{
-	padding: 0px; 
+.p-0px {
+    padding: 0px;
 }
-.pb-15px{
+.pb-15px {
     padding-bottom: 15px;
 }
-.pl-0px{
+.pl-0px {
     padding-left: 0px;
 }
-.pr-0px{
+.pr-0px {
     padding-right: 0px;
 }
 /**
@@ -48,14 +49,18 @@
 /**
  * Margin style
  */
-.mt-5px{
-	margin-top: 5px;
+
+.mt-5px {
+    margin-top: 5px;
 }
-.mt-15px{
-	margin-top: 15px;
+.mt-15px {
+    margin-top: 15px;
 }
-.mb-0px{
-	margin-bottom: 0px;
+.mb-0px {
+    margin-bottom: 0px;
+}
+.mb-30px {
+    margin-bottom: 30px;
 }
 /**
  * End margin style
@@ -64,14 +69,15 @@
 /**
  * Template
  */
-.fs-12px{
+
+.fs-12px {
     font-size: 12px;
 }
-.i-checks{
-	font-size: 12px;
-	margin-bottom: 0px;
+.i-checks {
+    font-size: 12px;
+    margin-bottom: 0px;
 }
-.tittle-header{
+.tittle-header {
     padding-bottom: 15px;
     margin-top: 15px;
     color: #000000;
@@ -79,49 +85,49 @@
     width: 100%;
     border-bottom: 1px solid #dddddd;
 }
-.pagination{
+.pagination {
     font-size: 12px;
 }
-.ui-select-bootstrap .ui-select-match .btn-default{
+.ui-select-bootstrap .ui-select-match .btn-default {
     height: 28px;
     font-size: 12px;
 }
-.ui-select-toggle{
-    padding-top: 5px; 
+.ui-select-toggle {
+    padding-top: 5px;
 }
-.ui-select-bootstrap .ui-select-choices-row>span{
+.ui-select-bootstrap .ui-select-choices-row>span {
     font-size: 12px;
 }
-.ui-select-search{
+.ui-select-search {
     font-size: 12px;
     height: 28px;
 }
-.sidebar .nav-item a{
+.sidebar .nav-item a {
     font-size: 12px;
 }
-.angka{
+.angka {
     text-align: center;
 }
-.badge-table{
+.badge-table {
     font-size: 11px;
 }
-.input-group-sm{
+.input-group-sm {
     height: 28px;
 }
-.input-group-sm .input-group-text{
+.input-group-sm .input-group-text {
     font-size: 11px;
 }
-.rp{
+.rp {
     text-align: right;
 }
 .required::after {
     content: '*';
     color: red;
 }
-.steps-indicator li.current a:before{
+.steps-indicator li.current a:before {
     background-color: #31b5f5 !important;
 }
-.app-header.navbar .navbar-brand{
+.app-header.navbar .navbar-brand {
     padding: 0px;
     padding-right: 0px;
     border-right: 1px solid #f0f3f5;
@@ -134,23 +140,31 @@
     text-align: center;
     border-bottom: 1px solid #f0f3f5;
 }
-.px-3{
+.px-3 {
     font-size: 13px;
 }
-.navbar-brand{
+.navbar-brand {
     margin-top: 5px;
 }
-.navbar-brand-text{
+.navbar-brand-text {
     margin-top: 8px;
 }
-.img-brand{
+.img-brand {
     height: auto;
-    position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
+}
+.box-shadow{
+    border-radius: 5px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.card-footer{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 /**
  * End template
@@ -159,7 +173,8 @@
 /** 
  * Password Checker
  */
-input.ng-pristine + ul#strength {
+
+input.ng-pristine+ul#strength {
     display: none;
 }
 ul#strength {
@@ -190,49 +205,116 @@ ul#strength {
     background-color: transparent;
     font-size: 11px;
 }
-
-.help-block-sm{
+.help-block-sm {
     font-size: 11px;
     margin-bottom: 0px;
 }
-
 /** End Password Checker */
 
 /**
  * Table
  */
-.table td, .table th{
-	border-top: 1px solid #c9ced3;
+
+.table td, .table th {
+    border-top: 1px solid #c8ced3;
     padding: 5px;
     font-size: 12px;
     cursor: pointer;
 }
-.table thead th{
-	border-bottom: 1px solid #efefef;
-}
-.table td, .table th{
+.table td, .table th {
     vertical-align: middle;
+}
+.table thead tr th{
+    height: 35px;
+    border-bottom: 1px solid #c8ced3;
+    vertical-align: middle;
+}
+.table-striped td{
+    border-top: none;
 }
 /**
  * End table
  */
+
+/**
+ * Tabel Laporan
+ */
+.table-laporan tr {
+    background-color: #e3f1f31f;
+    border-bottom: none;
+}
+.table-laporan td {
+    border: none !important;
+}
+.table-laporan tbody+tbody {
+    border-top: none;
+}
+.table-laporan tbody tr:nth-of-type(odd) {
+    background-color: rgba(57, 143, 163, 0.12);
+}
+.table-laporan thead tr {
+    background-color: #398fa3;
+    color: white;
+}
+.table-laporan tbody tr th {
+    background-color: #398fa3;
+    color: white;
+}
+.table-laporan tfoot tr {
+    background-color: #398fa3;
+    color: white;
+}
+.header-laporan {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.content-center {
+    text-align: center;
+}
+.header-laporan-wrapper {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #525252;
+}
+.table-laporan thead tr th{
+    border-bottom: none;
+    border-top: none;
+    vertical-align: middle;
+    height: auto;
+}
+/**
+ * End tabel laporan
+ */
+
 /**
  * Sweet alert
  */
-.swal2-popup .swal2-title{
+
+.swal2-popup .swal2-title {
     font-size: 20px;
 }
-
 .swal2-popup #swal2-content {
     font-size: 16px;
     text-align: center;
 }
-
 /**
  * Medium
  */
-.medium-editor-toolbar li button{
+
+.medium-editor-toolbar li button {
     min-width: 35px !important;
     height: 35px !important;
     padding: 5px !important;
+}
+.card-header strong {
+    font-size: 14px;
+}
+.card-header strong {
+    font-size: 14px;
+}
+.card-header-white {
+    background-color: #fff;
+    border-bottom: 1px solid #e4e5e6;
 }

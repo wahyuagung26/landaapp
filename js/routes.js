@@ -57,6 +57,18 @@ angular.module("app").config(["$stateProvider", "$urlRouterProvider", "$ocLazyLo
                     }
                 ]
             }
+        }).state("app.pemasukan", {
+            url: "/pemasukan",
+            templateUrl: "api/vendor/cahkampung/landa-acc/tpl/t_pemasukan/index.html",
+            resolve: {
+                loadMyCtrl: ["$ocLazyLoad",
+                    function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: ["api/vendor/cahkampung/landa-acc/tpl/t_pemasukan/index.js"]
+                        });
+                    }
+                ]
+            }
         }).state("pengguna", {
             abstract: true,
             templateUrl: "tpl/common/layouts/full.html",

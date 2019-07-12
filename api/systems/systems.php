@@ -54,15 +54,22 @@ function getUrlFile()
     $uri    = dispatch();
     $getUri = explode("/", $uri);
 
-    if ($getUri[0] == 'api') {
-        $file = 'routes/' . (isset($getUri[1]) ? $getUri[1] : 'sites') . '.php';
-
+    $path   = isset($getUri[0]) ? $getUri[0] : '';
+    $action = isset($getUri[1]) ? $getUri[1] : '';
+    $action2 = isset($getUri[2]) ? $getUri[2] : '';
+    
+    if ($path == 'api') {
+        $file = 'routes/' . (isset($action) ? $action : 'sites') . '.php';
+        if (file_exists($file)) {
+            return $file;
+        }
+    } else if($path == 'acc') {
+        $file = 'acc/landa-acc/routes/' . $action . '.php';
         if (file_exists($file)) {
             return $file;
         }
     } else {
-
-        $file = 'routes/' . $getUri[0] . '.php';
+        $file = 'routes/' . $path . '.php';
 
         if (file_exists($file)) {
             return $file;

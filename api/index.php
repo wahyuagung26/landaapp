@@ -22,6 +22,10 @@ if (file_exists('vendor/cahkampung/landa-php/src/LandaPhp.php')) {
     require 'vendor/cahkampung/landa-php/src/LandaPhp.php';
 }
 
+if (file_exists('vendor/cahkampung/landa-acc/functions.php')) {
+    require 'vendor/cahkampung/landa-acc/functions.php';
+}
+
 $config = [
     'displayErrorDetails'               => config('DISPLAY_ERROR'),
     'determineRouteBeforeAppMiddleware' => true,
