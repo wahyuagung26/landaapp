@@ -37,12 +37,10 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <tr>
-                                    {% for key, val in field|slice(0,4) %}
-                                    <th class="align-left">{{ val.nama }}</th>
-                                    {% endfor %}
-                                    <th></th>
-                                </tr>
+                                {% for key, val in field|slice(0,4) %}
+                                <th class="align-left">{{ val.nama }}</th>
+                                {% endfor %}
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody ng-show="!isLoading">
@@ -73,7 +71,7 @@
         <div class="card" ng-if="is_edit">
             <div class="card-header">
                 <strong>
-                    {% set judul = "{{formtittle}}" %}
+                    {% set judul = "{{ formtittle }}" %}
                     {{ judul }}
                 </strong>
             </div>
@@ -89,7 +87,7 @@
                                     {% if val.Type == 'date' %}
                                     <input type="text" class="form-control form-control-sm" ng-click="toggle($event, '{{ val.Field }}')"  is-open="opened.{{ val.Field }}" uib-datepicker-popup="dd-MM-yyyy" ng-model="form.{{ val.Field }}" ng-disabled="is_view"/>
                                     {% else %}
-                                    <input type="text" class="form-control form-control-sm" ng-model="form.{{ val.Field }}" maxlength="{{val.maks}}" ng-disabled="is_view"/>
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.{{ val.Field }}" maxlength="{{ val.maks }}" ng-disabled="is_view"/>
                                     {% endif %}
                                 </div>
                             </div>
@@ -106,16 +104,14 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <tr>
-                                            {% for key, val in listFieldDet %}
-                                            {% if val.Key != 'PRI' and val.Field != fieldRelasi %}
-                                            <th class="align-left">{{val.Field}}</th>
-                                            {% endif %}
-                                            {% endfor %}
-                                            <th class="align-center" style="width: 10px;">
-                                                <button type="button" class="btn btn-success fa fa-plus" ng-click="addDetail(listDetail)" ng-disabled="is_view"></button>
-                                            </th>
-                                        </tr>
+                                        {% for key, val in listFieldDet %}
+                                        {% if val.Key != 'PRI' and val.Field != fieldRelasi %}
+                                        <th class="align-left">{{ val.Field }}</th>
+                                        {% endif %}
+                                        {% endfor %}
+                                        <th class="align-center" style="width: 10px;">
+                                            <button type="button" class="btn btn-success fa fa-plus" ng-click="addDetail(listDetail)" ng-disabled="is_view"></button>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -123,7 +119,7 @@
                                         {% for key, val in listFieldDet %}
                                         {% if val.Key != 'PRI' and val.Field != fieldRelasi %}
                                         <td class="align-left">
-                                            <input type="text" class="form-control form-control-sm" maxlength="{{val.maks}}" ng-model="v.{{val.Field}}" ng-disabled="is_view"/>
+                                            <input type="text" class="form-control form-control-sm" maxlength="{{ val.maks }}" ng-model="v.{{ val.Field }}" ng-disabled="is_view"/>
                                         </td>
                                         {% endif %}
                                         {% endfor %}

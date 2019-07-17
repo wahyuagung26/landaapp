@@ -46,14 +46,12 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <tr>
-                                    <th class="align-left">Username</th>
-                                    <th class="align-left">Nama</th>
-                                    <th class="align-left">Alamat</th>
-                                    <th class="align-left">No Telepon</th>
-                                    <th class="align-left">Hak Akses</th>
-                                    <th></th>
-                                </tr>
+                                <th class="align-left">Username</th>
+                                <th class="align-left">Nama</th>
+                                <th class="align-left">Alamat</th>
+                                <th class="align-left">No Telepon</th>
+                                <th class="align-left">Hak Akses</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody ng-show="!isLoading">
@@ -99,7 +97,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label-sm">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control form-control-sm" ng-model="form.email" ng-disabled="is_view" required/>
+                                    <input type="text" class="form-control form-control-sm" ng-model="form.email" ng-disabled="is_view" required/>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +130,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group row">
-                               <label class="col-sm-3 col-form-label-sm">Password</label>
+                                <label class="col-sm-3 col-form-label-sm">Password</label>
                                 <div class="col-sm-9">
                                     <input class="form-control form-control-sm" id="pw" ng-disabled="is_view" ng-model="form.password" type="password"/>
                                     <ul check-strength="form.password" id="strength" model="cek"></ul>
@@ -142,7 +140,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group row">
-                               <label class="col-sm-3 col-form-label-sm required">Hak Akses</label>
+                                <label class="col-sm-3 col-form-label-sm required">Hak Akses</label>
                                 <div class="col-sm-9">
                                     <select class="form-control form-control-sm" id="hakakses" ng-disabled="is_view" ng-model="form.m_roles_id">
                                         <option value="">-Pilih Hak Akses-</option>
@@ -160,7 +158,7 @@
                         <i class="fa fa-arrow-left"></i>
                         &nbsp;Kembali
                     </button>
-                    <button type="submit" class="btn btn-primary btn-sm" ng-hide="is_view" button-spinner="loading" ng-disabled="cek  <= 3 || loading" ng-click="save(form)">
+                    <button type="submit" class="btn btn-primary btn-sm" ng-hide="is_view" button-spinner="loading" ng-disabled="cek   <= 3 || loading" ng-click="save(form)">
                         <i class="fa fa-save"></i>
                         &nbsp;Simpan
                     </button>
