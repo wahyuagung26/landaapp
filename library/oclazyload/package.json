@@ -33,7 +33,7 @@
   "deprecated": false,
   "description": "Load modules on demand (lazy load) with angularJS",
   "devDependencies": {
-    "bower": "~1.4.1",
+    "bower": "~1.8.8",
     "gulp": "~3.9.0",
     "gulp-babel": "~5.1.0",
     "gulp-clean": "~0.3.1",
