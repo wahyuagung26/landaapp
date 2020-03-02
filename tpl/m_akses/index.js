@@ -76,10 +76,12 @@ app.controller("aksesCtrl", function($scope, Data, $rootScope) {
             data.is_deleted = 1;
             Data.post("appakses/saveStatus", data).then(function(result) {
                 if (result.status_code == 200) {
-                    toaster.pop("success", "Berhasil", "Data berhasil dihapus");
+                    $rootScope.alert("Berhasil", "Data berhasil disimpan", "success");
+                    // toaster.pop("success", "Berhasil", "Data berhasil dihapus");
                     $scope.cancel();
                 } else {
-                    toaster.pop("error", "Terjadi Kesalahan", setErrorMessage(result.errors));
+                    $rootScope.alert("Terjadi Kesalahan", setErrorMessage(result.errors) ,"error");
+                    // toaster.pop("error", "Terjadi Kesalahan", setErrorMessage(result.errors));
                 }
             });
         }
