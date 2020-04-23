@@ -8,12 +8,6 @@
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="page.pemasukan">
-                    <i class="icon-speedometer"></i>
-                    Pemasukan
-                </a>
-            </li>
             <li class="nav-title" ng-if="user.m_roles_id != 4">Pengaturan</li>
             <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('pengguna')}" ng-if="user.akses.pengguna_akses || user.akses.pengguna_user">
                 <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('pengguna')}" href="#">

@@ -69,6 +69,45 @@ angular.module("app").config(["$stateProvider", "$urlRouterProvider", "$ocLazyLo
                     }
                 ]
             }
+        }).state("master", {
+            abstract: true,
+            templateUrl: "tpl/common/layouts/full.html",
+            ncyBreadcrumb: {
+                label: "Master"
+            },
+            resolve: {
+                loadCSS: ["$ocLazyLoad",
+                    function($ocLazyLoad) {
+                        return $ocLazyLoad.load(["fontawesome", "simplelineicon", "iconflag"]);
+                    }
+                ],
+                loadPlugin: ["$ocLazyLoad", function($ocLazyLoad) {}],
+                authenticate: authenticate
+            }
+        }).state("master.item", {
+            url: "/masteritem",
+            templateUrl: "tpl/item/index.html",
+            resolve: {
+                loadMyCtrl: ["$ocLazyLoad",
+                    function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: ["tpl/item/index.js"]
+                        });
+                    }
+                ]
+            }
+        }).state("master.penjualan", {
+            url: "/penjualan",
+            templateUrl: "tpl/penjualan/index.html",
+            resolve: {
+                loadMyCtrl: ["$ocLazyLoad",
+                    function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: ["tpl/penjualan/index.js"]
+                        });
+                    }
+                ]
+            }
         }).state("pengguna", {
             abstract: true,
             templateUrl: "tpl/common/layouts/full.html",
